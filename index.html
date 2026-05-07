@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Susco - Support Soluções Corporativas</title>
+  <meta name="description" content="Susco desenvolve soluções tecnológicas corporativas com foco em eficiência, automação e integração de processos industriais e empresariais." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://susco.com.br/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Susco - Support Soluções Corporativas" />
+  <meta property="og:description" content="Tecnologia corporativa de alto desempenho para empresas que precisam de mais eficiência." />
+  <meta property="og:url" content="https://susco.com.br/" />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0b0e14;
+      --surface:  #111620;
+      --border:   #1e2535;
+      --accent:   #00c2ff;
+      --accent2:  #0066cc;
+      --text:     #e8eaf0;
+      --muted:    #7a8599;
+      --white:    #ffffff;
+      --radius:   6px;
+      --font-head: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* ── GRID BACKGROUND ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,194,255,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,194,255,.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 68px;
+      background: rgba(11,14,20,.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: -0.03em;
+    }
+
+    .logo span { color: var(--accent); }
+
+    nav ul {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .875rem;
+      font-weight: 500;
+      letter-spacing: .02em;
+      transition: color .2s;
+    }
+
+    nav a:hover { color: var(--accent); }
+
+    .nav-cta {
+      color: var(--accent) !important;
+      border: 1px solid var(--accent);
+      padding: .4rem 1.1rem;
+      border-radius: var(--radius);
+      transition: background .2s, color .2s !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent) !important;
+      color: var(--bg) !important;
+    }
+
+    .menu-toggle { display: none; }
+
+    /* ── SECTIONS ── */
+    section { position: relative; z-index: 1; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 5% 80px;
+      position: relative;
+    }
+
+    .hero-glow {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(0,102,204,.22) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: rgba(0,194,255,.08);
+      border: 1px solid rgba(0,194,255,.2);
+      color: var(--accent);
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .35rem 1rem;
+      border-radius: 999px;
+      margin-bottom: 2rem;
+      animation: fadeUp .6s ease both;
+    }
+
+    .badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: blink 1.5s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: .3; }
+    }
+
+    h1 {
+      font-family: var(--font-head);
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -.04em;
+      color: var(--white);
+      max-width: 820px;
+      animation: fadeUp .7s .1s ease both;
+    }
+
+    h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      margin-top: 1.5rem;
+      font-size: 1.15rem;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 560px;
+      animation: fadeUp .7s .2s ease both;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2.8rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      animation: fadeUp .7s .3s ease both;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg);
+      padding: .85rem 2rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: .95rem;
+      text-decoration: none;
+      letter-spacing: .01em;
+      transition: opacity .2s, transform .2s;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    .btn-primary:hover { opacity: .88; transform: translateY(-1px); }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: .85rem 2rem;
+      border-radius: var(--radius);
+      font-weight: 500;
+      font-size: .95rem;
+      text-decoration: none;
+      transition: border-color .2s, color .2s;
+    }
+
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 5rem;
+      animation: fadeUp .7s .4s ease both;
+    }
+
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: var(--font-head);
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -.04em;
+    }
+    .stat-num span { color: var(--accent); }
+    .stat-label { font-size: .78rem; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; }
+
+    /* ── SOBRE ── */
+    #sobre {
+      padding: 120px 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-tag {
+      font-size: .75rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -.03em;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      margin-top: 4rem;
+    }
+
+    .sobre-text p {
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+      font-size: 1.05rem;
+      font-weight: 300;
+    }
+
+    .sobre-text p strong { color: var(--text); font-weight: 500; }
+
+    .sobre-cards {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .mini-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.6rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      transition: border-color .25s;
+    }
+
+    .mini-card:hover { border-color: rgba(0,194,255,.4); }
+
+    .mini-icon {
+      width: 40px; height: 40px;
+      border-radius: var(--radius);
+      background: rgba(0,194,255,.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.1rem;
+    }
+
+    .mini-card h4 {
+      font-family: var(--font-head);
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: .25rem;
+    }
+
+    .mini-card p { font-size: .85rem; color: var(--muted); margin: 0; }
+
+    /* ── APPS ── */
+    #apps {
+      padding: 120px 5%;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .apps-inner { max-width: 1200px; margin: 0 auto; }
+
+    .apps-header { text-align: center; margin-bottom: 4rem; }
+
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .app-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: border-color .25s, transform .25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .app-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent2), var(--accent));
+      opacity: 0;
+      transition: opacity .3s;
+    }
+
+    .app-card:hover { border-color: rgba(0,194,255,.3); transform: translateY(-3px); }
+    .app-card:hover::after { opacity: 1; }
+
+    .app-icon {
+      width: 52px; height: 52px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent2), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+
+    .app-status {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .72rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #00e676;
+      font-weight: 600;
+    }
+
+    .app-status::before {
+      content: '';
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: #00e676;
+    }
+
+    .app-card h3 {
+      font-family: var(--font-head);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+      margin: 0;
+    }
+
+    .app-card p {
+      font-size: .9rem;
+      color: var(--muted);
+      font-weight: 300;
+      flex: 1;
+    }
+
+    .app-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+    }
+
+    .tag {
+      font-size: .72rem;
+      padding: .2rem .65rem;
+      border-radius: 999px;
+      background: rgba(0,194,255,.08);
+      border: 1px solid rgba(0,194,255,.15);
+      color: var(--accent);
+      letter-spacing: .04em;
+    }
+
+    /* ── TECNOLOGIA ── */
+    #tecnologia {
+      padding: 120px 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .tec-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      margin-top: 4rem;
+    }
+
+    .tec-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .tec-item {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+    }
+
+    .tec-num {
+      font-family: var(--font-head);
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: rgba(0,194,255,.15);
+      line-height: 1;
+      min-width: 52px;
+    }
+
+    .tec-item h4 {
+      font-family: var(--font-head);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: .3rem;
+    }
+
+    .tec-item p { font-size: .9rem; color: var(--muted); font-weight: 300; }
+
+    .tec-visual {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2rem;
+      font-family: 'Courier New', monospace;
+      font-size: .82rem;
+      color: var(--muted);
+      line-height: 1.8;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tec-visual::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(0,102,204,.15) 0%, transparent 60%);
+    }
+
+    .tec-visual .c-green { color: #4caf50; }
+    .tec-visual .c-blue  { color: var(--accent); }
+    .tec-visual .c-gray  { color: #4a5568; }
+    .tec-visual .c-white { color: var(--white); }
+    .tec-visual .c-orange { color: #ff9800; }
+
+    /* ── CONTATO ── */
+    #contato {
+      padding: 120px 5%;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+    }
+
+    .contato-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contato-inner p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      font-weight: 300;
+      max-width: 540px;
+      margin: 1.2rem auto 3rem;
+    }
+
+    .contato-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .contato-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.8rem;
+      text-align: left;
+      transition: border-color .25s;
+    }
+
+    .contato-card:hover { border-color: rgba(0,194,255,.4); }
+
+    .contato-card-icon {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .contato-card h4 {
+      font-family: var(--font-head);
+      font-size: .85rem;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: .4rem;
+    }
+
+    .contato-card a, .contato-card p {
+      color: var(--text);
+      text-decoration: none;
+      font-size: .95rem;
+      display: block;
+    }
+
+    .contato-card a:hover { color: var(--accent); }
+
+    .contato-email-cta {
+      margin-top: 3rem;
+      display: inline-flex;
+      align-items: center;
+      gap: .75rem;
+      background: rgba(0,194,255,.08);
+      border: 1px solid rgba(0,194,255,.25);
+      padding: 1rem 2rem;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      color: var(--accent);
+      text-decoration: none;
+      transition: background .2s;
+    }
+
+    .contato-email-cta:hover { background: rgba(0,194,255,.16); }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 2.5rem 5%;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-logo {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .footer-logo span { color: var(--accent); }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .85rem;
+      transition: color .2s;
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    .footer-copy {
+      color: var(--muted);
+      font-size: .8rem;
+      width: 100%;
+      text-align: center;
+      margin-top: .5rem;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav ul { display: none; }
+      .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: .5rem;
+        background: none;
+        border: none;
+      }
+      .menu-toggle span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: var(--text);
+        transition: .3s;
+      }
+      nav.open ul {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 68px;
+        left: 0; right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        padding: 1.5rem 5%;
+        gap: 1.5rem;
+      }
+
+      .sobre-grid,
+      .tec-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .hero-stats { gap: 2rem; flex-wrap: wrap; justify-content: center; }
+
+      .footer-links { gap: 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="/" class="logo">susco</a>
+  <ul>
+    <li><a href="#sobre">Empresa</a></li>
+    <li><a href="#apps">Aplicativos</a></li>
+    <li><a href="#tecnologia">Tecnologia</a></li>
+    <li><a href="/privacidade">Privacidade</a></li>
+    <li><a href="#contato" class="nav-cta">Contato</a></li>
+  </ul>
+  <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-glow"></div>
+
+  <div class="badge">Tecnologia Corporativa</div>
+
+  <h1>Soluções de <em>software</em><br />para empresas reais</h1>
+
+  <p class="hero-sub">
+    Desenvolvemos aplicativos e sistemas que otimizam processos corporativos com precisão, escalabilidade e foco em resultado.
+  </p>
+
+  <div class="hero-actions">
+    <a href="#apps" class="btn-primary">
+      Ver Aplicativos
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+    <a href="#contato" class="btn-outline">Falar com a equipe</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">25<span>+</span></div>
+      <div class="stat-label">Anos em tecnologia industrial</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">3<span>+</span></div>
+      <div class="stat-label">Apps publicados</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">24<span>/7</span></div>
+      <div class="stat-label">Disponibilidade</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="section-tag reveal">Quem somos</div>
+  <h2 class="reveal">Support Soluções<br />Corporativas</h2>
+
+  <div class="sobre-grid">
+    <div class="sobre-text reveal">
+      <p>
+        A <strong>Susco</strong> (Support Soluções Corporativas Ltda.) e uma empresa brasileira especializada no desenvolvimento de soluções tecnologicas para o ambiente corporativo e industrial.
+      </p>
+      <p>
+        Atuamos no design, desenvolvimento e publicacao de aplicativos moveis e sistemas que ajudam organizacoes a ganhar eficiencia, reduzir erros e tomar decisoes baseadas em dados.
+      </p>
+      <p>
+        Nosso portfolio conta com <strong>3 aplicativos publicados</strong> e uma pipeline ativa de novas solucoes em desenvolvimento, sempre orientadas as necessidades reais do mercado corporativo.
+      </p>
+      <p>
+        CNPJ: 43.225.621/0001-86
+      </p>
+    </div>
+
+    <div class="sobre-cards reveal">
+      <div class="mini-card">
+        <div class="mini-icon">⚙️</div>
+        <div>
+          <h4>Automacao de processos</h4>
+          <p>Substituimos fluxos manuais por sistemas integrados e auditaveis.</p>
+        </div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-icon">📱</div>
+        <div>
+          <h4>Apps moveis corporativos</h4>
+          <p>Aplicativos publicados nas lojas com foco em uso empresarial e industrial.</p>
+        </div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-icon">🔒</div>
+        <div>
+          <h4>Privacidade e conformidade</h4>
+          <p>Seguimos as diretrizes da LGPD e politicas das plataformas de distribuicao.</p>
+        </div>
+      </div>
+      <div class="mini-card">
+        <div class="mini-icon">📈</div>
+        <div>
+          <h4>Evolucao continua</h4>
+          <p>Novos aplicativos e funcionalidades em desenvolvimento permanente.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- APPS -->
+<section id="apps">
+  <div class="apps-inner">
+    <div class="apps-header">
+      <div class="section-tag reveal">Nossos produtos</div>
+      <h2 class="reveal">Aplicativos publicados</h2>
+      <p class="reveal" style="color:var(--muted);max-width:500px;margin:0 auto;font-weight:300;">
+        Solucoes moveis desenvolvidas para o ambiente corporativo, disponiveis nas principais lojas de aplicativos.
+      </p>
+    </div>
+
+    <div class="apps-grid">
+
+      <div class="app-card reveal">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+          <div class="app-icon">📋</div>
+          <div class="app-status">Publicado</div>
+        </div>
+        <h3>App Corporativo 01</h3>
+        <p>Solucao para gestao e controle de processos internos, com interface intuitiva e sincronizacao em nuvem para equipes corporativas.</p>
+        <div class="app-tags">
+          <span class="tag">Gestao</span>
+          <span class="tag">Corporativo</span>
+          <span class="tag">Nuvem</span>
+        </div>
+      </div>
+
+      <div class="app-card reveal">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+          <div class="app-icon">🏭</div>
+          <div class="app-status">Publicado</div>
+        </div>
+        <h3>App Corporativo 02</h3>
+        <p>Ferramenta voltada ao ambiente industrial, com suporte a coleta de dados em campo, monitoramento e relatorios operacionais.</p>
+        <div class="app-tags">
+          <span class="tag">Industrial</span>
+          <span class="tag">Campo</span>
+          <span class="tag">Relatorios</span>
+        </div>
+      </div>
+
+      <div class="app-card reveal">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+          <div class="app-icon">📊</div>
+          <div class="app-status">Publicado</div>
+        </div>
+        <h3>App Corporativo 03</h3>
+        <p>Plataforma de analise e visualizacao de indicadores para gestores, com dashboards personalizaveis e alertas em tempo real.</p>
+        <div class="app-tags">
+          <span class="tag">Analytics</span>
+          <span class="tag">Dashboard</span>
+          <span class="tag">Gestores</span>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="reveal" style="text-align:center;margin-top:3rem;color:var(--muted);font-size:.9rem;">
+      Novos aplicativos em desenvolvimento. Entre em contato para saber mais.
+    </p>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- TECNOLOGIA -->
+<section id="tecnologia">
+  <div class="section-tag reveal">Como trabalhamos</div>
+  <h2 class="reveal">Tecnologia como<br />diferencial competitivo</h2>
+
+  <div class="tec-grid">
+    <div class="tec-list">
+      <div class="tec-item reveal">
+        <div class="tec-num">01</div>
+        <div>
+          <h4>Desenvolvimento nativo e hibrido</h4>
+          <p>Apps construidos com as melhores praticas para iOS e Android, garantindo performance e experiencia de usuario de alto nivel.</p>
+        </div>
+      </div>
+      <div class="tec-item reveal">
+        <div class="tec-num">02</div>
+        <div>
+          <h4>Arquitetura escalavel</h4>
+          <p>Infraestrutura pensada para crescer junto com a operacao do cliente, sem comprometer disponibilidade ou velocidade.</p>
+        </div>
+      </div>
+      <div class="tec-item reveal">
+        <div class="tec-num">03</div>
+        <div>
+          <h4>Conformidade e seguranca</h4>
+          <p>Todos os aplicativos seguem as diretrizes da LGPD, Google Play e App Store, com politicas de privacidade claras e auditaveis.</p>
+        </div>
+      </div>
+      <div class="tec-item reveal">
+        <div class="tec-num">04</div>
+        <div>
+          <h4>Ciclo continuo de melhoria</h4>
+          <p>Atualizacoes regulares, coleta de feedback e roadmap evolutivo para cada produto publicado.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tec-visual reveal">
+<span class="c-gray">// susco.com.br</span>
+<br /><span class="c-blue">const</span> <span class="c-white">susco</span> = {
+<br />&nbsp;&nbsp;<span class="c-green">empresa</span>: <span class="c-orange">"Support Solucoes Corporativas"</span>,
+<br />&nbsp;&nbsp;<span class="c-green">cnpj</span>: <span class="c-orange">"43.225.621/0001-86"</span>,
+<br />&nbsp;&nbsp;<span class="c-green">apps</span>: [
+<br />&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-orange">"App Corporativo 01"</span>,
+<br />&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-orange">"App Corporativo 02"</span>,
+<br />&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-orange">"App Corporativo 03"</span>,
+<br />&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-gray">// ...em desenvolvimento</span>
+<br />&nbsp;&nbsp;],
+<br />&nbsp;&nbsp;<span class="c-green">foco</span>: <span class="c-orange">"corporativo e industrial"</span>,
+<br />&nbsp;&nbsp;<span class="c-green">contato</span>: <span class="c-orange">"contato@susco.com.br"</span>,
+<br />};
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="contato-inner">
+    <div class="section-tag reveal">Fale conosco</div>
+    <h2 class="reveal">Pronto para comecar?</h2>
+    <p class="reveal">
+      Entre em contato para conhecer nossos aplicativos ou discutir como a Susco pode ajudar sua empresa.
+    </p>
+
+    <div class="contato-cards reveal">
+      <div class="contato-card">
+        <div class="contato-card-icon">✉️</div>
+        <h4>E-mail</h4>
+        <a href="mailto:contato@susco.com.br">contato@susco.com.br</a>
+      </div>
+      <div class="contato-card">
+        <div class="contato-card-icon">🌐</div>
+        <h4>Website</h4>
+        <p>susco.com.br</p>
+      </div>
+      <div class="contato-card">
+        <div class="contato-card-icon">🏢</div>
+        <h4>CNPJ</h4>
+        <p>43.225.621/0001-86</p>
+      </div>
+    </div>
+
+    <a href="mailto:contato@susco.com.br" class="contato-email-cta reveal">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      Enviar mensagem
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="/" class="footer-logo">susco</a>
+  <ul class="footer-links">
+    <li><a href="#sobre">Empresa</a></li>
+    <li><a href="#apps">Aplicativos</a></li>
+    <li><a href="/privacidade">Politica de Privacidade</a></li>
+    <li><a href="mailto:contato@susco.com.br">Contato</a></li>
+  </ul>
+  <p class="footer-copy">
+    &copy; <span id="year"></span> Support Solucoes Corporativas Ltda. CNPJ 43.225.621/0001-86
+  </p>
+</footer>
+
+<script>
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Mobile menu
+  const toggle = document.getElementById('menuToggle');
+  const nav = document.getElementById('navbar');
+  toggle.addEventListener('click', () => nav.classList.toggle('open'));
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 60);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => obs.observe(r));
+</script>
+
+</body>
+</html>
