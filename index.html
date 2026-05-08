@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support Soluções Corporativas - Susco</title>
+  <meta name="description" content="Aplicativos corporativos desenvolvidos com experiencia real de campo. Uma empresa solida, com historia e compromisso." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://susco.com.br/" />
+  <meta property="og:title" content="Support Soluções Corporativas" />
+  <meta property="og:description" content="Tecnologia corporativa desenvolvida por quem conhece a operacao." />
+  <meta property="og:url" content="https://susco.com.br/" />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #162236;
+      --surface: #1a2a40;
+      --border:  rgba(255,255,255,.07);
+      --text:    #e2eaf5;
+      --muted:   rgba(226,234,245,.42);
+      --white:   #ffffff;
+      --accent:  #60a5fa;
+      --gold:    rgba(180,140,80,.5);
+      --radius:  6px;
+      --font-head: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 0 5%;
+      border-bottom: 1px solid var(--border);
+      background: rgba(22,34,54,.92);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-in {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 66px;
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .brand-name {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: .82rem;
+      letter-spacing: .06em;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: rgba(226,234,245,.4);
+      text-decoration: none;
+      font-size: .78rem;
+      font-weight: 400;
+      transition: color .2s;
+      letter-spacing: .04em;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-pill {
+      border: 1px solid rgba(226,234,245,.25) !important;
+      color: rgba(226,234,245,.7) !important;
+      padding: .3rem .9rem;
+      border-radius: var(--radius);
+      transition: border-color .2s, color .2s !important;
+    }
+
+    .nav-pill:hover {
+      border-color: rgba(226,234,245,.6) !important;
+      color: var(--white) !important;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: .4rem;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      transition: .3s;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 100px 5% 70px;
+    }
+
+    .hero-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-left { z-index: 2; }
+
+    .eyebrow {
+      font-size: .65rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(226,234,245,.35);
+      font-weight: 400;
+      margin-bottom: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      animation: fadeUp .6s ease both;
+    }
+
+    .eyebrow::before {
+      content: '';
+      width: 20px;
+      height: 1px;
+      background: rgba(226,234,245,.25);
+    }
+
+    h1 {
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 3.8vw, 3.2rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -.03em;
+      margin-bottom: 1.2rem;
+      animation: fadeUp .6s .1s ease both;
+    }
+
+    h1 em {
+      font-style: italic;
+      font-family: var(--font-body);
+      font-weight: 300;
+      color: rgba(255,255,255,.5);
+    }
+
+    .hero-sub {
+      font-size: .9rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.85;
+      margin-bottom: 2.2rem;
+      max-width: 360px;
+      animation: fadeUp .6s .2s ease both;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: .8rem;
+      flex-wrap: wrap;
+      animation: fadeUp .6s .3s ease both;
+    }
+
+    .btn-primary {
+      border: 1px solid rgba(255,255,255,.35);
+      color: var(--white);
+      padding: .65rem 1.5rem;
+      border-radius: var(--radius);
+      font-size: .78rem;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: .05em;
+      transition: background .2s;
+    }
+
+    .btn-primary:hover { background: rgba(255,255,255,.07); }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,.1);
+      color: rgba(255,255,255,.45);
+      padding: .65rem 1.5rem;
+      border-radius: var(--radius);
+      font-size: .78rem;
+      font-weight: 400;
+      text-decoration: none;
+      letter-spacing: .05em;
+      transition: border-color .2s, color .2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,.3);
+      color: rgba(255,255,255,.75);
+    }
+
+    /* ── CHIP VISUAL ── */
+    .hero-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn .8s .3s ease both;
+    }
+
+    .circuit {
+      position: relative;
+      width: 380px;
+      height: 380px;
+    }
+
+    .node {
+      position: absolute;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #1e3a5a, #1a3050);
+      border: 1px solid rgba(255,255,255,.08);
+      transition: border-color .3s;
+    }
+
+    .node:hover { border-color: rgba(255,255,255,.18); }
+
+    .n1{width:70px;height:70px;top:20px;left:20px;}
+    .n2{width:70px;height:70px;top:20px;left:155px;}
+    .n3{width:70px;height:70px;top:20px;right:20px;}
+    .n4{width:70px;height:70px;top:155px;left:20px;}
+    .n5{width:70px;height:70px;top:155px;right:20px;}
+    .n6{width:70px;height:70px;bottom:20px;left:20px;}
+    .n7{width:70px;height:70px;bottom:20px;left:155px;}
+    .n8{width:70px;height:70px;bottom:20px;right:20px;}
+
+    .nc {
+      width: 110px;
+      height: 110px;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      background: linear-gradient(135deg, #1e3a5a, #0f2035);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 16px;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nc-inner {
+      width: 50px;
+      height: 50px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, rgba(180,140,80,.25), rgba(180,140,80,.08));
+      border: 1px solid rgba(180,140,80,.3);
+    }
+
+    .tracks {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+    }
+
+    .flow  { stroke-dasharray: 6 4; animation: dash 3s linear infinite; }
+    .flow2 { stroke-dasharray: 6 4; animation: dash 3s 1s linear infinite; }
+    .flow3 { stroke-dasharray: 6 4; animation: dash 3s 2s linear infinite; }
+
+    @keyframes dash { to { stroke-dashoffset: -40; } }
+
+    .pulse {
+      position: absolute;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+    }
+
+    .pulse::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      border: 1px solid currentColor;
+      animation: ring 2s ease-out infinite;
+      opacity: 0;
+    }
+
+    @keyframes ring {
+      0%   { transform: scale(1); opacity: .6; }
+      100% { transform: scale(2.5); opacity: 0; }
+    }
+
+    .p1{top:54px;left:92px;background:#60a5fa;color:#60a5fa;animation:blink 3s infinite;}
+    .p2{top:54px;right:92px;background:#34d399;color:#34d399;animation:blink 3s .5s infinite;}
+    .p3{top:192px;left:92px;background:#f97316;color:#f97316;animation:blink 3s 1s infinite;}
+    .p4{bottom:54px;left:192px;background:#a78bfa;color:#a78bfa;animation:blink 3s 1.5s infinite;}
+    .p5{top:192px;right:92px;background:#60a5fa;color:#60a5fa;animation:blink 3s 2s infinite;}
+
+    @keyframes blink {
+      0%, 100% { opacity: .4; }
+      50% { opacity: 1; }
+    }
+
+    .corner { position: absolute; width: 30px; height: 30px; }
+    .c-tl{top:-15px;left:-15px;}
+    .c-tr{top:-15px;right:-15px;}
+    .c-bl{bottom:-15px;left:-15px;}
+    .c-br{bottom:-15px;right:-15px;}
+
+    /* ── SOBRE ── */
+    #sobre {
+      padding: 100px 5%;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .sec-tag {
+      font-size: .65rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(226,234,245,.3);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-family: var(--font-head);
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -.03em;
+      line-height: 1.12;
+      margin-bottom: 3rem;
+    }
+
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .sobre-text p {
+      color: var(--muted);
+      font-size: .95rem;
+      font-weight: 300;
+      line-height: 1.85;
+      margin-bottom: 1.2rem;
+    }
+
+    .sobre-text p strong { color: var(--text); font-weight: 500; }
+
+    .info-table { margin-top: 2rem; }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255,255,255,.05);
+    }
+
+    .info-row:first-child { border-top: 1px solid rgba(255,255,255,.05); }
+
+    .info-key {
+      font-size: .7rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(226,234,245,.25);
+      font-weight: 500;
+    }
+
+    .info-val {
+      font-size: .85rem;
+      color: rgba(226,234,245,.55);
+      font-weight: 300;
+    }
+
+    /* ── APPS ── */
+    #apps {
+      padding: 100px 5%;
+      border-top: 1px solid var(--border);
+      background: rgba(0,0,0,.1);
+    }
+
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.2rem;
+      margin-top: 3rem;
+    }
+
+    .app-card {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 8px;
+      padding: 2rem;
+      transition: border-color .25s, background .25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .app-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(96,165,250,.4), transparent);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+
+    .app-card:hover {
+      border-color: rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+    }
+
+    .app-card:hover::before { opacity: 1; }
+
+    .app-status {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .65rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: #34d399;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+    }
+
+    .app-status::before {
+      content: '';
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: #34d399;
+    }
+
+    .app-card h3 {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: .6rem;
+    }
+
+    .app-card p {
+      font-size: .85rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.75;
+    }
+
+    .app-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+      margin-top: 1.2rem;
+    }
+
+    .tag {
+      font-size: .68rem;
+      padding: .2rem .65rem;
+      border-radius: 999px;
+      background: rgba(96,165,250,.08);
+      border: 1px solid rgba(96,165,250,.15);
+      color: rgba(96,165,250,.7);
+      letter-spacing: .04em;
+    }
+
+    /* ── CONTATO ── */
+    #contato {
+      padding: 100px 5%;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    #contato h2 { margin-bottom: .8rem; }
+
+    .contato-sub {
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 300;
+      margin-bottom: 3rem;
+    }
+
+    .contato-email {
+      display: inline-flex;
+      align-items: center;
+      gap: .75rem;
+      border: 1px solid rgba(255,255,255,.15);
+      color: rgba(226,234,245,.7);
+      padding: 1rem 2rem;
+      border-radius: var(--radius);
+      font-size: .9rem;
+      text-decoration: none;
+      transition: border-color .2s, color .2s;
+      letter-spacing: .03em;
+    }
+
+    .contato-email:hover {
+      border-color: rgba(255,255,255,.35);
+      color: var(--white);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: rgba(0,0,0,.2);
+      border-top: 1px solid var(--border);
+      padding: 2rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: .78rem;
+      letter-spacing: .06em;
+      color: rgba(255,255,255,.3);
+      text-decoration: none;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,.25);
+      text-decoration: none;
+      font-size: .75rem;
+      letter-spacing: .04em;
+      transition: color .2s;
+    }
+
+    .footer-links a:hover { color: rgba(255,255,255,.55); }
+
+    .footer-copy {
+      font-size: .7rem;
+      color: rgba(255,255,255,.18);
+      letter-spacing: .06em;
+      width: 100%;
+      text-align: center;
+      padding-top: .5rem;
+      border-top: 1px solid rgba(255,255,255,.04);
+    }
+
+    /* ── REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .hero-inner { grid-template-columns: 1fr; }
+
+      .hero-right {
+        order: -1;
+        margin-top: 1rem;
+      }
+
+      .circuit {
+        width: 280px;
+        height: 280px;
+        transform: scale(.75);
+        transform-origin: center;
+      }
+
+      .sobre-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+
+    @media (max-width: 640px) {
+      nav ul { display: none; }
+      .menu-toggle { display: flex; }
+
+      nav.open ul {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 66px; left: 0; right: 0;
+        background: #162236;
+        border-bottom: 1px solid var(--border);
+        padding: 1.5rem 5%;
+        gap: 1.5rem;
+      }
+
+      .hero-right { display: none; }
+      h1 { font-size: clamp(2rem, 8vw, 2.8rem); }
+      .hero-sub { max-width: 100%; }
+
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: .8rem; }
+      .footer-links { flex-wrap: wrap; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-in">
+    <a href="/" class="brand-name">Support Soluções Corporativas</a>
+    <ul class="nav-links">
+      <li><a href="#sobre">Empresa</a></li>
+      <li><a href="#apps">Aplicativos</a></li>
+      <li><a href="/privacidade">Privacidade</a></li>
+      <li><a href="#contato" class="nav-pill">Contato</a></li>
+    </ul>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <p class="eyebrow">Tecnologia Corporativa</p>
+      <h1>Solucoes que<br/><em>funcionam</em><br/>no mundo real</h1>
+      <p class="hero-sub">Aplicativos corporativos desenvolvidos com experiencia real de campo. Uma empresa solida, com historia e compromisso.</p>
+      <div class="hero-btns">
+        <a href="#apps" class="btn-primary">Ver aplicativos</a>
+        <a href="#contato" class="btn-secondary">Falar conosco</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="circuit">
+        <div class="corner c-tl"><svg viewBox="0 0 30 30"><path d="M28 2 L8 2 Q2 2 2 8 L2 28" stroke="rgba(180,140,80,.4)" stroke-width="1.5" fill="none"/><circle cx="2" cy="28" r="2" fill="rgba(180,140,80,.5)"/></svg></div>
+        <div class="corner c-tr"><svg viewBox="0 0 30 30"><path d="M2 2 L22 2 Q28 2 28 8 L28 28" stroke="rgba(180,140,80,.4)" stroke-width="1.5" fill="none"/><circle cx="28" cy="28" r="2" fill="rgba(180,140,80,.5)"/></svg></div>
+        <div class="corner c-bl"><svg viewBox="0 0 30 30"><path d="M28 28 L8 28 Q2 28 2 22 L2 2" stroke="rgba(180,140,80,.4)" stroke-width="1.5" fill="none"/><circle cx="2" cy="2" r="2" fill="rgba(180,140,80,.5)"/></svg></div>
+        <div class="corner c-br"><svg viewBox="0 0 30 30"><path d="M2 28 L22 28 Q28 28 28 22 L28 2" stroke="rgba(180,140,80,.4)" stroke-width="1.5" fill="none"/><circle cx="28" cy="2" r="2" fill="rgba(180,140,80,.5)"/></svg></div>
+
+        <div class="node n1"></div>
+        <div class="node n2"></div>
+        <div class="node n3"></div>
+        <div class="node n4"></div>
+        <div class="node n5"></div>
+        <div class="node n6"></div>
+        <div class="node n7"></div>
+        <div class="node n8"></div>
+
+        <svg class="tracks" viewBox="0 0 380 380">
+          <line x1="90" y1="55" x2="155" y2="55" stroke="rgba(96,165,250,.2)" stroke-width="1"/>
+          <line x1="225" y1="55" x2="290" y2="55" stroke="rgba(52,211,153,.2)" stroke-width="1"/>
+          <line x1="90" y1="190" x2="135" y2="190" stroke="rgba(249,115,22,.25)" stroke-width="1" class="flow"/>
+          <line x1="245" y1="190" x2="290" y2="190" stroke="rgba(96,165,250,.2)" stroke-width="1" class="flow2"/>
+          <line x1="90" y1="325" x2="155" y2="325" stroke="rgba(167,139,250,.2)" stroke-width="1"/>
+          <line x1="225" y1="325" x2="290" y2="325" stroke="rgba(96,165,250,.2)" stroke-width="1"/>
+          <line x1="55" y1="90" x2="55" y2="155" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+          <line x1="55" y1="225" x2="55" y2="290" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+          <line x1="325" y1="90" x2="325" y2="155" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+          <line x1="325" y1="225" x2="325" y2="290" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+          <line x1="190" y1="90" x2="190" y2="135" stroke="rgba(255,255,255,.08)" stroke-width="1" class="flow3"/>
+          <line x1="190" y1="245" x2="190" y2="290" stroke="rgba(255,255,255,.08)" stroke-width="1" class="flow"/>
+        </svg>
+
+        <div class="pulse p1"></div>
+        <div class="pulse p2"></div>
+        <div class="pulse p3"></div>
+        <div class="pulse p4"></div>
+        <div class="pulse p5"></div>
+
+        <div class="nc"><div class="nc-inner"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="section-inner">
+    <div class="sec-tag reveal">Quem somos</div>
+    <h2 class="reveal">Uma empresa construida<br/>pela experiencia</h2>
+
+    <div class="sobre-grid">
+      <div class="sobre-text reveal">
+        <p>A <strong>Susco</strong> (Support Solucoes Corporativas Ltda.) nasceu de mais de duas decadas atuando diretamente em tecnologia industrial, suporte tecnico e automacao. Conhecemos os problemas reais das empresas porque ja estivemos dentro delas.</p>
+        <p>Desenvolvemos aplicativos moveis corporativos com foco em <strong>resultado pratico</strong>, nao apenas em tecnologia pela tecnologia. Cada produto e pensado para resolver uma necessidade concreta do dia a dia operacional.</p>
+        <p>Nosso portfolio conta com aplicativos publicados nas principais lojas, com novos produtos em desenvolvimento continuo.</p>
+      </div>
+
+      <div class="info-table reveal">
+        <div class="info-row">
+          <span class="info-key">Razao Social</span>
+          <span class="info-val">Support Solucoes Corporativas Ltda.</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">CNPJ</span>
+          <span class="info-val">43.225.621/0001-86</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Segmento</span>
+          <span class="info-val">Tecnologia Corporativa</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Experiencia</span>
+          <span class="info-val">25+ anos em tecnologia industrial</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Contato</span>
+          <span class="info-val">contato@susco.com.br</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Website</span>
+          <span class="info-val">susco.com.br</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPS -->
+<section id="apps">
+  <div class="section-inner">
+    <div class="sec-tag reveal">Produtos</div>
+    <h2 class="reveal">Aplicativos publicados</h2>
+
+    <div class="apps-grid">
+      <div class="app-card reveal">
+        <div class="app-status">Publicado</div>
+        <h3>App Corporativo 01</h3>
+        <p>Solucao para gestao e controle de processos internos, com interface intuitiva e sincronizacao para equipes corporativas.</p>
+        <div class="app-tags">
+          <span class="tag">Corporativo</span>
+          <span class="tag">Android</span>
+        </div>
+      </div>
+
+      <div class="app-card reveal">
+        <div class="app-status">Publicado</div>
+        <h3>App Corporativo 02</h3>
+        <p>Ferramenta voltada ao ambiente industrial, com suporte a coleta de dados em campo e relatorios operacionais.</p>
+        <div class="app-tags">
+          <span class="tag">Industrial</span>
+          <span class="tag">Android</span>
+        </div>
+      </div>
+
+      <div class="app-card reveal">
+        <div class="app-status">Publicado</div>
+        <h3>App Corporativo 03</h3>
+        <p>Plataforma de analise e visualizacao de indicadores para gestores, com dashboards e alertas em tempo real.</p>
+        <div class="app-tags">
+          <span class="tag">Analytics</span>
+          <span class="tag">Android</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="reveal" style="text-align:center;margin-top:2.5rem;font-size:.8rem;color:rgba(226,234,245,.25);letter-spacing:.06em;">
+      Novos aplicativos em desenvolvimento. Entre em contato para saber mais.
+    </p>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="section-inner">
+    <div class="sec-tag reveal">Fale conosco</div>
+    <h2 class="reveal">Pronto para comecar?</h2>
+    <p class="contato-sub reveal">Entre em contato para conhecer nossos aplicativos ou tirar duvidas sobre a Susco.</p>
+    <a href="mailto:contato@susco.com.br" class="contato-email reveal">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      contato@susco.com.br
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="/" class="footer-logo">Support Solucoes Corporativas Ltda.</a>
+    <ul class="footer-links">
+      <li><a href="#sobre">Empresa</a></li>
+      <li><a href="#apps">Aplicativos</a></li>
+      <li><a href="/privacidade">Privacidade</a></li>
+      <li><a href="mailto:contato@susco.com.br">Contato</a></li>
+    </ul>
+    <p class="footer-copy">
+      &copy; <span id="year"></span> Support Solucoes Corporativas Ltda. &nbsp;|&nbsp; CNPJ 43.225.621/0001-86 &nbsp;|&nbsp; susco.com.br
+    </p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const toggle = document.getElementById('menuToggle');
+  const nav = document.getElementById('navbar');
+  toggle.addEventListener('click', () => nav.classList.toggle('open'));
+
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => obs.observe(r));
+</script>
+</body>
+</html>
