@@ -1,0 +1,14 @@
+{
+  "apps": {
+    "crono_pro": {
+      "nome": "Crono Pro Industrial",
+      "play_store": "https://play.google.com/store/apps/details?id=br.com.calculadoraproducao.app",
+      "app_store": ""
+    },
+    "orca_agil": {
+      "nome": "Orça Ágil",
+      "play_store": "https://play.google.com/store/apps/details?id=br.com.orcagil.app",
+      "app_store": ""
+    }
+  }
+}

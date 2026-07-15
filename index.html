@@ -11,144 +11,704 @@
   <meta property="og:description" content="Tecnologia corporativa desenvolvida por quem conhece a operação." />
   <meta property="og:url" content="https://susco.com.br/" />
   <meta property="og:type" content="website" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --bg: #162236; --border: rgba(255,255,255,.07);
-      --text: #e2eaf5; --muted: rgba(226,234,245,.42); --white: #ffffff;
-      --radius: 6px; --font-head: 'Syne', sans-serif; --font-body: 'DM Sans', sans-serif;
+      --bg:       #1e2d3d;
+      --surface:  #253549;
+      --border:   rgba(255,255,255,.08);
+      --text:     #dde6f0;
+      --muted:    rgba(221,230,240,.42);
+      --white:    #ffffff;
+      --radius:   6px;
+      --font-head: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
     }
+
     html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 16px; line-height: 1.65; overflow-x: hidden; }
 
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 5%; border-bottom: 1px solid var(--border); background: rgba(22,34,54,.92); backdrop-filter: blur(14px); }
-    .nav-in { display: flex; align-items: center; justify-content: space-between; height: 66px; max-width: 1160px; margin: 0 auto; }
-    .brand-name { font-family: var(--font-body); font-weight: 500; font-size: .82rem; letter-spacing: .06em; color: var(--white); text-decoration: none; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
-    .nav-links a { color: rgba(226,234,245,.4); text-decoration: none; font-size: .78rem; font-weight: 400; transition: color .2s; letter-spacing: .04em; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 0 5%;
+      border-bottom: 1px solid var(--border);
+      background: rgba(30,45,61,.93);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-in {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 66px;
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .brand-name {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: .82rem;
+      letter-spacing: .06em;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: rgba(221,230,240,.38);
+      text-decoration: none;
+      font-size: .78rem;
+      font-weight: 400;
+      transition: color .2s;
+      letter-spacing: .04em;
+    }
+
     .nav-links a:hover { color: var(--white); }
-    .nav-pill { border: 1px solid rgba(226,234,245,.25) !important; color: rgba(226,234,245,.7) !important; padding: .3rem .9rem; border-radius: var(--radius); transition: border-color .2s, color .2s !important; }
-    .nav-pill:hover { border-color: rgba(226,234,245,.6) !important; color: var(--white) !important; }
-    .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: .4rem; }
-    .menu-toggle span { display: block; width: 22px; height: 2px; background: var(--text); transition: .3s; }
 
-    #hero { min-height: 100vh; display: flex; align-items: center; padding: 100px 5% 70px; }
-    .hero-inner { max-width: 1160px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-    .eyebrow { font-size: .65rem; letter-spacing: .22em; text-transform: uppercase; color: rgba(226,234,245,.35); font-weight: 400; margin-bottom: 1.4rem; display: flex; align-items: center; gap: .6rem; animation: fadeUp .6s ease both; }
-    .eyebrow::before { content: ''; width: 20px; height: 1px; background: rgba(226,234,245,.25); }
-    h1 { font-family: var(--font-head); font-size: clamp(2rem,3.8vw,3.2rem); font-weight: 800; color: var(--white); line-height: 1.1; letter-spacing: -.03em; margin-bottom: 1.2rem; animation: fadeUp .6s .1s ease both; }
-    h1 em { font-style: italic; font-family: var(--font-body); font-weight: 300; color: rgba(255,255,255,.5); }
-    .hero-sub { font-size: .9rem; color: var(--muted); font-weight: 300; line-height: 1.85; margin-bottom: 2.2rem; max-width: 360px; animation: fadeUp .6s .2s ease both; }
-    .hero-btns { display: flex; gap: .8rem; flex-wrap: wrap; margin-bottom: 2rem; animation: fadeUp .6s .3s ease both; }
-    .btn-primary { border: 1px solid rgba(255,255,255,.35); color: var(--white); padding: .65rem 1.5rem; border-radius: var(--radius); font-size: .78rem; font-weight: 500; text-decoration: none; letter-spacing: .05em; transition: background .2s; }
-    .btn-primary:hover { background: rgba(255,255,255,.07); }
-    .btn-secondary { border: 1px solid rgba(255,255,255,.1); color: rgba(255,255,255,.45); padding: .65rem 1.5rem; border-radius: var(--radius); font-size: .78rem; font-weight: 400; text-decoration: none; letter-spacing: .05em; transition: border-color .2s, color .2s; }
-    .btn-secondary:hover { border-color: rgba(255,255,255,.3); color: rgba(255,255,255,.75); }
-    .hero-badges { display: flex; gap: 1.2rem; align-items: center; animation: fadeUp .6s .4s ease both; }
-    .hbadge { display: flex; align-items: center; gap: .4rem; font-size: .68rem; color: rgba(226,234,245,.28); letter-spacing: .06em; }
-    .hbadge::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: rgba(52,211,153,.6); }
+    .nav-pill {
+      border: 1px solid rgba(221,230,240,.22) !important;
+      color: rgba(221,230,240,.65) !important;
+      padding: .3rem .9rem;
+      border-radius: var(--radius);
+      transition: border-color .2s, color .2s !important;
+    }
 
-    .hero-right { display: flex; align-items: center; justify-content: center; animation: fadeIn .8s .3s ease both; }
-    .circuit { position: relative; width: 340px; height: 340px; }
-    .node { position: absolute; border-radius: 10px; background: linear-gradient(135deg,#1e3a5a,#1a3050); border: 1px solid rgba(255,255,255,.08); transition: border-color .3s; }
-    .node:hover { border-color: rgba(255,255,255,.18); }
-    .n1{width:62px;height:62px;top:18px;left:18px;} .n2{width:62px;height:62px;top:18px;left:139px;} .n3{width:62px;height:62px;top:18px;right:18px;}
-    .n4{width:62px;height:62px;top:139px;left:18px;} .n5{width:62px;height:62px;top:139px;right:18px;}
-    .n6{width:62px;height:62px;bottom:18px;left:18px;} .n7{width:62px;height:62px;bottom:18px;left:139px;} .n8{width:62px;height:62px;bottom:18px;right:18px;}
-    .nc { width: 100px; height: 100px; top: 50%; left: 50%; transform: translate(-50%,-50%); position: absolute; background: linear-gradient(135deg,#1e3a5a,#0f2035); border: 1px solid rgba(255,255,255,.14); border-radius: 14px; z-index: 2; display: flex; align-items: center; justify-content: center; }
-    .nc-inner { width: 44px; height: 44px; border-radius: 7px; background: linear-gradient(135deg,rgba(180,140,80,.25),rgba(180,140,80,.08)); border: 1px solid rgba(180,140,80,.3); }
-    .tracks { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
-    .flow { stroke-dasharray: 6 4; animation: dash 3s linear infinite; }
+    .nav-pill:hover {
+      border-color: rgba(221,230,240,.5) !important;
+      color: var(--white) !important;
+    }
+
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: .4rem;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      transition: .3s;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 100px 5% 70px;
+    }
+
+    .hero-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      font-size: .65rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(221,230,240,.3);
+      font-weight: 400;
+      margin-bottom: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      animation: fadeUp .6s ease both;
+    }
+
+    .eyebrow::before {
+      content: '';
+      width: 20px;
+      height: 1px;
+      background: rgba(221,230,240,.2);
+    }
+
+    h1 {
+      font-family: var(--font-head);
+      font-size: clamp(2rem, 3.8vw, 3.2rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -.03em;
+      margin-bottom: 1.2rem;
+      animation: fadeUp .6s .1s ease both;
+    }
+
+    h1 em {
+      font-style: italic;
+      font-family: var(--font-body);
+      font-weight: 300;
+      color: rgba(255,255,255,.45);
+    }
+
+    .hero-sub {
+      font-size: .9rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.85;
+      margin-bottom: 2.2rem;
+      max-width: 360px;
+      animation: fadeUp .6s .2s ease both;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: .8rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+      animation: fadeUp .6s .3s ease both;
+    }
+
+    .btn-primary {
+      border: 1px solid rgba(255,255,255,.32);
+      color: var(--white);
+      padding: .65rem 1.5rem;
+      border-radius: var(--radius);
+      font-size: .78rem;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: .05em;
+      transition: background .2s;
+    }
+
+    .btn-primary:hover { background: rgba(255,255,255,.08); }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,.1);
+      color: rgba(255,255,255,.42);
+      padding: .65rem 1.5rem;
+      border-radius: var(--radius);
+      font-size: .78rem;
+      font-weight: 400;
+      text-decoration: none;
+      letter-spacing: .05em;
+      transition: border-color .2s, color .2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,.28);
+      color: rgba(255,255,255,.72);
+    }
+
+    .hero-badges {
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+      animation: fadeUp .6s .4s ease both;
+    }
+
+    .hbadge {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .68rem;
+      color: rgba(221,230,240,.25);
+      letter-spacing: .06em;
+    }
+
+    .hbadge::before {
+      content: '';
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: rgba(52,211,153,.55);
+    }
+
+    /* ── CHIP ── */
+    .hero-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn .8s .3s ease both;
+    }
+
+    .circuit {
+      position: relative;
+      width: 340px;
+      height: 340px;
+    }
+
+    .node {
+      position: absolute;
+      border-radius: 10px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.07);
+      transition: border-color .3s;
+    }
+
+    .node:hover { border-color: rgba(255,255,255,.15); }
+
+    .n1{width:62px;height:62px;top:18px;left:18px;}
+    .n2{width:62px;height:62px;top:18px;left:139px;}
+    .n3{width:62px;height:62px;top:18px;right:18px;}
+    .n4{width:62px;height:62px;top:139px;left:18px;}
+    .n5{width:62px;height:62px;top:139px;right:18px;}
+    .n6{width:62px;height:62px;bottom:18px;left:18px;}
+    .n7{width:62px;height:62px;bottom:18px;left:139px;}
+    .n8{width:62px;height:62px;bottom:18px;right:18px;}
+
+    .nc {
+      width: 100px;
+      height: 100px;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 14px;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nc-inner {
+      width: 44px;
+      height: 44px;
+      border-radius: 7px;
+      background: rgba(180,140,80,.15);
+      border: 1px solid rgba(180,140,80,.28);
+    }
+
+    .tracks {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+    }
+
+    .flow  { stroke-dasharray: 6 4; animation: dash 3s linear infinite; }
     .flow2 { stroke-dasharray: 6 4; animation: dash 3s 1s linear infinite; }
     .flow3 { stroke-dasharray: 6 4; animation: dash 3s 2s linear infinite; }
+
     @keyframes dash { to { stroke-dashoffset: -40; } }
-    .pulse { position: absolute; width: 6px; height: 6px; border-radius: 50%; }
-    .pulse::before { content: ''; position: absolute; inset: -3px; border-radius: 50%; border: 1px solid currentColor; animation: ring 2s ease-out infinite; opacity: 0; }
-    @keyframes ring { 0% { transform: scale(1); opacity: .6; } 100% { transform: scale(2.5); opacity: 0; } }
+
+    .pulse {
+      position: absolute;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+    }
+
+    .pulse::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      border: 1px solid currentColor;
+      animation: ring 2s ease-out infinite;
+      opacity: 0;
+    }
+
+    @keyframes ring {
+      0%   { transform: scale(1); opacity: .6; }
+      100% { transform: scale(2.5); opacity: 0; }
+    }
+
     .p1{top:48px;left:82px;background:#60a5fa;color:#60a5fa;animation:blink 3s infinite;}
     .p2{top:48px;right:82px;background:#34d399;color:#34d399;animation:blink 3s .5s infinite;}
     .p3{top:172px;left:82px;background:#f97316;color:#f97316;animation:blink 3s 1s infinite;}
     .p4{bottom:48px;left:172px;background:#a78bfa;color:#a78bfa;animation:blink 3s 1.5s infinite;}
     .p5{top:172px;right:82px;background:#60a5fa;color:#60a5fa;animation:blink 3s 2s infinite;}
-    @keyframes blink { 0%,100% { opacity: .4; } 50% { opacity: 1; } }
+
+    @keyframes blink {
+      0%,100% { opacity: .35; }
+      50% { opacity: 1; }
+    }
+
     .corner { position: absolute; width: 28px; height: 28px; }
-    .c-tl{top:-14px;left:-14px;} .c-tr{top:-14px;right:-14px;} .c-bl{bottom:-14px;left:-14px;} .c-br{bottom:-14px;right:-14px;}
+    .c-tl{top:-14px;left:-14px;}
+    .c-tr{top:-14px;right:-14px;}
+    .c-bl{bottom:-14px;left:-14px;}
+    .c-br{bottom:-14px;right:-14px;}
 
-    #sobre { padding: 100px 5%; border-top: 1px solid var(--border); }
+    /* ── SEÇÕES ── */
     .section-inner { max-width: 1160px; margin: 0 auto; }
-    .sec-tag { font-size: .65rem; letter-spacing: .22em; text-transform: uppercase; color: rgba(226,234,245,.3); font-weight: 500; margin-bottom: 1rem; display: flex; align-items: center; gap: .6rem; }
-    .sec-tag::before { content: ''; width: 16px; height: 1px; background: rgba(226,234,245,.2); }
-    h2 { font-family: var(--font-head); font-size: clamp(1.8rem,3.5vw,2.8rem); font-weight: 800; color: var(--white); letter-spacing: -.03em; line-height: 1.12; margin-bottom: 1.5rem; }
-    .sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; margin-top: 3rem; }
-    .sobre-text p { color: var(--muted); font-size: .95rem; font-weight: 300; line-height: 1.85; margin-bottom: 1.2rem; }
+
+    .sec-tag {
+      font-size: .65rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(221,230,240,.28);
+      font-weight: 500;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+
+    .sec-tag::before {
+      content: '';
+      width: 16px;
+      height: 1px;
+      background: rgba(221,230,240,.18);
+    }
+
+    h2 {
+      font-family: var(--font-head);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -.03em;
+      line-height: 1.12;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── SOBRE ── */
+    #sobre {
+      padding: 100px 5%;
+      border-top: 1px solid var(--border);
+    }
+
+    .sobre-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      margin-top: 3rem;
+    }
+
+    .sobre-text p {
+      color: var(--muted);
+      font-size: .95rem;
+      font-weight: 300;
+      line-height: 1.85;
+      margin-bottom: 1.2rem;
+    }
+
     .sobre-text p strong { color: var(--text); font-weight: 500; }
-    .sobre-stat { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
-    .big-num { font-family: var(--font-head); font-size: 7rem; font-weight: 800; color: rgba(255,255,255,.06); line-height: 1; letter-spacing: -.06em; position: relative; text-align: center; }
-    .big-num span { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: rgba(226,234,245,.5); letter-spacing: -.01em; text-align: center; line-height: 1.4; }
-    .sobre-pills { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; }
-    .pill { font-size: .72rem; padding: .3rem .9rem; border-radius: 999px; border: 1px solid rgba(255,255,255,.08); color: rgba(226,234,245,.35); letter-spacing: .06em; }
 
-    #apps { padding: 100px 5%; border-top: 1px solid var(--border); background: rgba(0,0,0,.1); }
-    .apps-list { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 3rem; }
-    .app-item { border: 1px solid rgba(255,255,255,.07); border-radius: 10px; overflow: hidden; transition: border-color .25s; }
-    .app-item:hover { border-color: rgba(255,255,255,.14); }
-    .app-banner { width: 100%; height: 220px; display: block; }
-    .app-body { padding: 1.5rem 2rem; display: flex; align-items: flex-start; justify-content: space-between; gap: 2rem; }
+    .sobre-stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .big-num {
+      font-family: var(--font-head);
+      font-size: 7rem;
+      font-weight: 800;
+      color: rgba(255,255,255,.05);
+      line-height: 1;
+      letter-spacing: -.06em;
+      position: relative;
+      text-align: center;
+    }
+
+    .big-num span {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.05rem;
+      color: rgba(221,230,240,.45);
+      letter-spacing: -.01em;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .sobre-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+      justify-content: center;
+    }
+
+    .pill {
+      font-size: .72rem;
+      padding: .3rem .9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.07);
+      color: rgba(221,230,240,.32);
+      letter-spacing: .06em;
+    }
+
+    /* ── APPS ── */
+    #apps {
+      padding: 100px 5%;
+      border-top: 1px solid var(--border);
+      background: rgba(0,0,0,.1);
+    }
+
+    .apps-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .app-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 12px;
+      padding: 2rem;
+      display: flex;
+      gap: 1.4rem;
+      align-items: flex-start;
+      transition: border-color .25s, background .25s;
+    }
+
+    .app-card:hover {
+      border-color: rgba(255,255,255,.14);
+      background: rgba(255,255,255,.07);
+    }
+
+    .app-icon {
+      width: 68px;
+      height: 68px;
+      border-radius: 16px;
+      overflow: hidden;
+      flex-shrink: 0;
+      box-shadow: 0 4px 16px rgba(0,0,0,.25);
+    }
+
+    .app-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     .app-info { flex: 1; }
-    .app-status { display: inline-flex; align-items: center; gap: .4rem; font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; margin-bottom: .7rem; }
-    .app-status.live { color: #34d399; }
-    .app-status.live::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: #34d399; }
-    .app-status.soon { color: rgba(167,139,250,.8); }
-    .app-status.soon::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: rgba(167,139,250,.8); }
-    .app-info h3 { font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: .5rem; }
-    .app-info p { font-size: .85rem; color: var(--muted); font-weight: 300; line-height: 1.75; }
-    .app-tags { display: flex; gap: .4rem; flex-wrap: wrap; margin-top: .8rem; }
-    .tag { font-size: .68rem; padding: .2rem .65rem; border-radius: 999px; background: rgba(96,165,250,.08); border: 1px solid rgba(96,165,250,.15); color: rgba(96,165,250,.7); letter-spacing: .04em; }
-    .app-cta { flex-shrink: 0; display: inline-flex; align-items: center; gap: .5rem; border: 1px solid rgba(255,255,255,.15); color: rgba(226,234,245,.6); padding: .6rem 1.2rem; border-radius: var(--radius); font-size: .75rem; text-decoration: none; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; transition: border-color .2s, color .2s; }
-    .app-cta:hover { border-color: rgba(255,255,255,.35); color: var(--white); }
 
-    #contato { padding: 100px 5%; border-top: 1px solid var(--border); text-align: center; }
+    .app-status {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      font-size: .62rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #34d399;
+      margin-bottom: .6rem;
+    }
+
+    .app-status::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #34d399;
+    }
+
+    .app-info h3 {
+      font-family: var(--font-head);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: .4rem;
+    }
+
+    .app-info p {
+      font-size: .82rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.72;
+      margin-bottom: 1.1rem;
+    }
+
+    .app-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+
+    .store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .72rem;
+      color: rgba(221,230,240,.55);
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,.12);
+      padding: .35rem .9rem;
+      border-radius: var(--radius);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      transition: border-color .2s, color .2s;
+    }
+
+    .store-btn:hover {
+      border-color: rgba(255,255,255,.3);
+      color: var(--white);
+    }
+
+    .store-btn svg { opacity: .7; }
+
+    /* ── CONTATO ── */
+    #contato {
+      padding: 100px 5%;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
     #contato h2 { margin-bottom: .8rem; }
-    .contato-sub { color: var(--muted); font-size: .9rem; font-weight: 300; margin-bottom: 3rem; }
-    .contato-email { display: inline-flex; align-items: center; gap: .75rem; border: 1px solid rgba(255,255,255,.15); color: rgba(226,234,245,.7); padding: 1rem 2rem; border-radius: var(--radius); font-size: .9rem; text-decoration: none; transition: border-color .2s, color .2s; letter-spacing: .03em; }
-    .contato-email:hover { border-color: rgba(255,255,255,.35); color: var(--white); }
 
-    footer { background: rgba(0,0,0,.2); border-top: 1px solid var(--border); padding: 2rem 5%; }
-    .footer-inner { max-width: 1160px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
-    .footer-logo { font-family: var(--font-body); font-weight: 500; font-size: .78rem; letter-spacing: .06em; color: rgba(255,255,255,.3); text-decoration: none; }
-    .footer-links { display: flex; gap: 2rem; list-style: none; }
-    .footer-links a { color: rgba(255,255,255,.25); text-decoration: none; font-size: .75rem; letter-spacing: .04em; transition: color .2s; }
-    .footer-links a:hover { color: rgba(255,255,255,.55); }
-    .footer-copy { font-size: .7rem; color: rgba(255,255,255,.18); letter-spacing: .06em; width: 100%; text-align: center; padding-top: .5rem; border-top: 1px solid rgba(255,255,255,.04); }
+    .contato-sub {
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 300;
+      margin-bottom: 3rem;
+    }
 
-    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+    .contato-email {
+      display: inline-flex;
+      align-items: center;
+      gap: .75rem;
+      border: 1px solid rgba(255,255,255,.14);
+      color: rgba(221,230,240,.65);
+      padding: 1rem 2rem;
+      border-radius: var(--radius);
+      font-size: .9rem;
+      text-decoration: none;
+      transition: border-color .2s, color .2s;
+      letter-spacing: .03em;
+    }
+
+    .contato-email:hover {
+      border-color: rgba(255,255,255,.32);
+      color: var(--white);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: rgba(0,0,0,.18);
+      border-top: 1px solid var(--border);
+      padding: 2rem 5%;
+    }
+
+    .footer-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: .78rem;
+      letter-spacing: .06em;
+      color: rgba(255,255,255,.28);
+      text-decoration: none;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,.22);
+      text-decoration: none;
+      font-size: .75rem;
+      letter-spacing: .04em;
+      transition: color .2s;
+    }
+
+    .footer-links a:hover { color: rgba(255,255,255,.52); }
+
+    .footer-copy {
+      font-size: .7rem;
+      color: rgba(255,255,255,.16);
+      letter-spacing: .06em;
+      width: 100%;
+      text-align: center;
+      padding-top: .5rem;
+      border-top: 1px solid rgba(255,255,255,.04);
+    }
+
+    /* ── REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
     .reveal.visible { opacity: 1; transform: none; }
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* ── MOBILE ── */
     @media (max-width: 860px) {
       .hero-inner { grid-template-columns: 1fr; }
       .hero-right { display: none; }
       .sobre-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .app-body { flex-direction: column; gap: 1rem; }
-      .app-cta { align-self: flex-start; }
+      .apps-grid { grid-template-columns: 1fr; }
     }
+
     @media (max-width: 640px) {
       nav ul { display: none; }
       .menu-toggle { display: flex; }
-      nav.open ul { display: flex; flex-direction: column; position: fixed; top: 66px; left: 0; right: 0; background: #162236; border-bottom: 1px solid var(--border); padding: 1.5rem 5%; gap: 1.5rem; }
-      h1 { font-size: clamp(2rem,8vw,2.8rem); }
+      nav.open ul {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 66px; left: 0; right: 0;
+        background: #1e2d3d;
+        border-bottom: 1px solid var(--border);
+        padding: 1.5rem 5%;
+        gap: 1.5rem;
+      }
+      h1 { font-size: clamp(2rem, 8vw, 2.8rem); }
       .hero-sub { max-width: 100%; }
       .footer-inner { flex-direction: column; align-items: flex-start; gap: .8rem; }
       .footer-links { flex-wrap: wrap; gap: 1rem; }
+      .app-card { flex-direction: column; }
     }
   </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav id="navbar">
   <div class="nav-in">
     <a href="/" class="brand-name">Support Soluções Corporativas</a>
@@ -164,6 +724,7 @@
   </div>
 </nav>
 
+<!-- HERO -->
 <section id="hero">
   <div class="hero-inner">
     <div class="hero-left">
@@ -180,28 +741,29 @@
         <span class="hbadge">App Store</span>
       </div>
     </div>
+
     <div class="hero-right">
       <div class="circuit">
-        <div class="corner c-tl"><svg viewBox="0 0 28 28"><path d="M26 2 L8 2 Q2 2 2 8 L2 26" stroke="rgba(180,140,80,.4)" stroke-width="1.5" fill="none"/><circle cx="2" cy="26" r="2" fill="rgba(180,140,80,.5)"/></svg></div>
-        <div class="corner c-tr"><svg viewBox="0 0 28 28"><path d="M2 2 L20 2 Q26 2 26 8 L26 26" stroke="rgba(180,140,80,.4)" stroke-width="1.5" fill="none"/><circle cx="26" cy="26" r="2" fill="rgba(180,140,80,.5)"/></svg></div>
-        <div class="corner c-bl"><svg viewBox="0 0 28 28"><path d="M26 26 L8 26 Q2 26 2 20 L2 2" stroke="rgba(180,140,80,.4)" stroke-width="1.5" fill="none"/><circle cx="2" cy="2" r="2" fill="rgba(180,140,80,.5)"/></svg></div>
-        <div class="corner c-br"><svg viewBox="0 0 28 28"><path d="M2 26 L20 26 Q26 26 26 20 L26 2" stroke="rgba(180,140,80,.4)" stroke-width="1.5" fill="none"/><circle cx="26" cy="2" r="2" fill="rgba(180,140,80,.5)"/></svg></div>
+        <div class="corner c-tl"><svg viewBox="0 0 28 28"><path d="M26 2 L8 2 Q2 2 2 8 L2 26" stroke="rgba(180,140,80,.35)" stroke-width="1.5" fill="none"/><circle cx="2" cy="26" r="2" fill="rgba(180,140,80,.4)"/></svg></div>
+        <div class="corner c-tr"><svg viewBox="0 0 28 28"><path d="M2 2 L20 2 Q26 2 26 8 L26 26" stroke="rgba(180,140,80,.35)" stroke-width="1.5" fill="none"/><circle cx="26" cy="26" r="2" fill="rgba(180,140,80,.4)"/></svg></div>
+        <div class="corner c-bl"><svg viewBox="0 0 28 28"><path d="M26 26 L8 26 Q2 26 2 20 L2 2" stroke="rgba(180,140,80,.35)" stroke-width="1.5" fill="none"/><circle cx="2" cy="2" r="2" fill="rgba(180,140,80,.4)"/></svg></div>
+        <div class="corner c-br"><svg viewBox="0 0 28 28"><path d="M2 26 L20 26 Q26 26 26 20 L26 2" stroke="rgba(180,140,80,.35)" stroke-width="1.5" fill="none"/><circle cx="26" cy="2" r="2" fill="rgba(180,140,80,.4)"/></svg></div>
         <div class="node n1"></div><div class="node n2"></div><div class="node n3"></div>
         <div class="node n4"></div><div class="node n5"></div>
         <div class="node n6"></div><div class="node n7"></div><div class="node n8"></div>
         <svg class="tracks" viewBox="0 0 340 340">
-          <line x1="80" y1="49" x2="139" y2="49" stroke="rgba(96,165,250,.2)" stroke-width="1"/>
-          <line x1="201" y1="49" x2="260" y2="49" stroke="rgba(52,211,153,.2)" stroke-width="1"/>
-          <line x1="80" y1="170" x2="120" y2="170" stroke="rgba(249,115,22,.25)" stroke-width="1" class="flow"/>
-          <line x1="220" y1="170" x2="260" y2="170" stroke="rgba(96,165,250,.2)" stroke-width="1" class="flow2"/>
-          <line x1="80" y1="291" x2="139" y2="291" stroke="rgba(167,139,250,.2)" stroke-width="1"/>
-          <line x1="201" y1="291" x2="260" y2="291" stroke="rgba(96,165,250,.2)" stroke-width="1"/>
-          <line x1="49" y1="80" x2="49" y2="139" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
-          <line x1="49" y1="201" x2="49" y2="260" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
-          <line x1="291" y1="80" x2="291" y2="139" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
-          <line x1="291" y1="201" x2="291" y2="260" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
-          <line x1="170" y1="80" x2="170" y2="120" stroke="rgba(255,255,255,.07)" stroke-width="1" class="flow3"/>
-          <line x1="170" y1="220" x2="170" y2="260" stroke="rgba(255,255,255,.07)" stroke-width="1" class="flow"/>
+          <line x1="80" y1="49" x2="139" y2="49" stroke="rgba(255,255,255,.12)" stroke-width="1"/>
+          <line x1="201" y1="49" x2="260" y2="49" stroke="rgba(255,255,255,.1)" stroke-width="1" class="flow"/>
+          <line x1="80" y1="170" x2="120" y2="170" stroke="rgba(255,255,255,.12)" stroke-width="1" class="flow2"/>
+          <line x1="220" y1="170" x2="260" y2="170" stroke="rgba(255,255,255,.1)" stroke-width="1" class="flow3"/>
+          <line x1="80" y1="291" x2="139" y2="291" stroke="rgba(255,255,255,.1)" stroke-width="1" class="flow"/>
+          <line x1="201" y1="291" x2="260" y2="291" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+          <line x1="49" y1="80" x2="49" y2="139" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+          <line x1="49" y1="201" x2="49" y2="260" stroke="rgba(255,255,255,.07)" stroke-width="1" class="flow2"/>
+          <line x1="291" y1="80" x2="291" y2="139" stroke="rgba(255,255,255,.07)" stroke-width="1" class="flow3"/>
+          <line x1="291" y1="201" x2="291" y2="260" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+          <line x1="170" y1="80" x2="170" y2="120" stroke="rgba(255,255,255,.09)" stroke-width="1" class="flow"/>
+          <line x1="170" y1="220" x2="170" y2="260" stroke="rgba(255,255,255,.09)" stroke-width="1" class="flow2"/>
         </svg>
         <div class="pulse p1"></div><div class="pulse p2"></div><div class="pulse p3"></div>
         <div class="pulse p4"></div><div class="pulse p5"></div>
@@ -211,6 +773,7 @@
   </div>
 </section>
 
+<!-- SOBRE -->
 <section id="sobre">
   <div class="section-inner">
     <div class="sec-tag reveal">Quem somos</div>
@@ -234,219 +797,21 @@
   </div>
 </section>
 
+<!-- APPS -->
 <section id="apps">
   <div class="section-inner">
     <div class="sec-tag reveal">Produtos</div>
     <h2 class="reveal">Aplicativos publicados</h2>
-    <div class="apps-list">
-
-      <!-- CALCULADORA -->
-      <div class="app-item reveal">
-        <svg class="app-banner" viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0d1e33"/><stop offset="100%" stop-color="#162e48"/></linearGradient>
-            <linearGradient id="accent1" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#1a56db"/><stop offset="100%" stop-color="#00c2ff"/></linearGradient>
-          </defs>
-          <rect width="900" height="220" fill="url(#bg1)"/>
-          <g stroke="rgba(255,255,255,.04)" stroke-width="1">
-            <line x1="0" y1="40" x2="900" y2="40"/><line x1="0" y1="80" x2="900" y2="80"/><line x1="0" y1="120" x2="900" y2="120"/><line x1="0" y1="160" x2="900" y2="160"/><line x1="0" y1="200" x2="900" y2="200"/>
-            <line x1="100" y1="0" x2="100" y2="220"/><line x1="200" y1="0" x2="200" y2="220"/><line x1="300" y1="0" x2="300" y2="220"/><line x1="400" y1="0" x2="400" y2="220"/><line x1="500" y1="0" x2="500" y2="220"/><line x1="600" y1="0" x2="600" y2="220"/><line x1="700" y1="0" x2="700" y2="220"/><line x1="800" y1="0" x2="800" y2="220"/>
-          </g>
-          <g opacity="0.9">
-            <rect x="560" y="150" width="36" height="50" rx="3" fill="rgba(26,86,219,.5)"/>
-            <rect x="612" y="110" width="36" height="90" rx="3" fill="rgba(26,86,219,.65)"/>
-            <rect x="664" y="80" width="36" height="120" rx="3" fill="rgba(0,194,255,.6)"/>
-            <rect x="716" y="55" width="36" height="145" rx="3" fill="rgba(0,194,255,.8)"/>
-            <rect x="768" y="35" width="36" height="165" rx="3" fill="url(#accent1)"/>
-            <polyline points="578,145 630,105 682,75 734,50 786,30" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1.5" stroke-dasharray="4 3"/>
-            <circle cx="578" cy="145" r="3" fill="#00c2ff"/><circle cx="630" cy="105" r="3" fill="#00c2ff"/><circle cx="682" cy="75" r="3" fill="#00c2ff"/><circle cx="734" cy="50" r="3" fill="#00c2ff"/><circle cx="786" cy="30" r="3" fill="#fff"/>
-          </g>
-          <rect x="790" y="8" width="72" height="22" rx="4" fill="rgba(0,194,255,.15)" stroke="rgba(0,194,255,.3)" stroke-width="1"/>
-          <text x="826" y="23" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" font-weight="500" fill="#00c2ff">OEE 94%</text>
-          <g transform="translate(60,50)">
-            <rect x="0" y="0" width="80" height="80" rx="12" fill="rgba(26,86,219,.15)" stroke="rgba(26,86,219,.3)" stroke-width="1"/>
-            <rect x="16" y="16" width="18" height="18" rx="3" fill="rgba(0,194,255,.2)" stroke="rgba(0,194,255,.3)" stroke-width="1"/>
-            <rect x="46" y="16" width="18" height="18" rx="3" fill="rgba(0,194,255,.2)" stroke="rgba(0,194,255,.3)" stroke-width="1"/>
-            <rect x="16" y="46" width="18" height="18" rx="3" fill="rgba(0,194,255,.2)" stroke="rgba(0,194,255,.3)" stroke-width="1"/>
-            <rect x="46" y="46" width="18" height="18" rx="3" fill="rgba(26,86,219,.4)" stroke="rgba(0,194,255,.5)" stroke-width="1"/>
-            <line x1="25" y1="0" x2="25" y2="16" stroke="rgba(0,194,255,.3)" stroke-width="1"/><line x1="55" y1="0" x2="55" y2="16" stroke="rgba(0,194,255,.3)" stroke-width="1"/>
-            <line x1="25" y1="64" x2="25" y2="80" stroke="rgba(0,194,255,.3)" stroke-width="1"/><line x1="55" y1="64" x2="55" y2="80" stroke="rgba(0,194,255,.3)" stroke-width="1"/>
-            <line x1="0" y1="25" x2="16" y2="25" stroke="rgba(0,194,255,.3)" stroke-width="1"/><line x1="0" y1="55" x2="16" y2="55" stroke="rgba(0,194,255,.3)" stroke-width="1"/>
-            <line x1="64" y1="25" x2="80" y2="25" stroke="rgba(0,194,255,.3)" stroke-width="1"/><line x1="64" y1="55" x2="80" y2="55" stroke="rgba(0,194,255,.3)" stroke-width="1"/>
-          </g>
-          <text x="175" y="82" font-family="Syne,sans-serif" font-size="22" font-weight="800" fill="white">Calculadora Produt. Industrial</text>
-          <text x="175" y="106" font-family="DM Sans,sans-serif" font-size="12" font-weight="300" fill="rgba(226,234,245,.4)">Gestão eficiente de capacidade produtiva</text>
-          <rect x="175" y="125" width="90" height="44" rx="6" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
-          <text x="220" y="142" text-anchor="middle" font-family="Syne,sans-serif" font-size="14" font-weight="700" fill="white">215 u/h</text>
-          <text x="220" y="160" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="rgba(226,234,245,.3)">CAPACIDADE</text>
-          <rect x="275" y="125" width="90" height="44" rx="6" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
-          <text x="320" y="142" text-anchor="middle" font-family="Syne,sans-serif" font-size="14" font-weight="700" fill="#00c2ff">94%</text>
-          <text x="320" y="160" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="rgba(226,234,245,.3)">EFICIÊNCIA</text>
-          <rect x="375" y="125" width="90" height="44" rx="6" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
-          <text x="420" y="142" text-anchor="middle" font-family="Syne,sans-serif" font-size="14" font-weight="700" fill="#34d399">89%</text>
-          <text x="420" y="160" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="rgba(226,234,245,.3)">OEE</text>
-        </svg>
-        <div class="app-body">
-          <div class="app-info">
-            <div class="app-status live">Publicado</div>
-            <h3>Calculadora Produt. Industrial</h3>
-            <p>A ferramenta essencial para supervisores, controladores de tempo e analistas de produção que precisam de estimativas rápidas e precisas no chão de fábrica.</p>
-            <div class="app-tags"><span class="tag">Industrial</span><span class="tag">Produtividade</span><span class="tag">Android</span></div>
-          </div>
-          <a href="https://play.google.com/store/apps/details?id=br.com.calculadoraproducao.app&hl=pt-BR" target="_blank" rel="noopener" class="app-cta">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            Play Store
-          </a>
-        </div>
-      </div>
-
-      <!-- ORÇA ÁGIL -->
-      <div class="app-item reveal">
-        <svg class="app-banner" viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="og" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#6b3010"/><stop offset="100%" stop-color="#8a3d12"/></linearGradient>
-            <linearGradient id="og2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f97316"/><stop offset="100%" stop-color="#ea580c"/></linearGradient>
-          </defs>
-          <rect width="900" height="220" fill="url(#og)"/>
-          <g stroke="rgba(255,160,80,.1)" stroke-width="1">
-            <line x1="0" y1="44" x2="900" y2="44"/><line x1="0" y1="88" x2="900" y2="88"/><line x1="0" y1="132" x2="900" y2="132"/><line x1="0" y1="176" x2="900" y2="176"/>
-            <line x1="180" y1="0" x2="180" y2="220"/><line x1="360" y1="0" x2="360" y2="220"/><line x1="540" y1="0" x2="540" y2="220"/><line x1="720" y1="0" x2="720" y2="220"/>
-          </g>
-          <circle cx="820" cy="110" r="130" fill="rgba(249,115,22,.08)" stroke="rgba(249,115,22,.12)" stroke-width="1"/>
-          <circle cx="820" cy="110" r="90" fill="rgba(249,115,22,.06)" stroke="rgba(249,115,22,.1)" stroke-width="1"/>
-          <g transform="translate(52,35)">
-            <rect x="0" y="0" width="100" height="130" rx="10" fill="rgba(255,255,255,.1)" stroke="rgba(249,115,22,.4)" stroke-width="1.5"/>
-            <rect x="30" y="-8" width="40" height="18" rx="5" fill="rgba(249,115,22,.7)"/>
-            <rect x="14" y="24" width="72" height="7" rx="3.5" fill="rgba(249,115,22,.7)"/>
-            <rect x="14" y="40" width="60" height="5" rx="2.5" fill="rgba(255,255,255,.25)"/>
-            <rect x="14" y="52" width="65" height="5" rx="2.5" fill="rgba(255,255,255,.2)"/>
-            <rect x="14" y="64" width="50" height="5" rx="2.5" fill="rgba(255,255,255,.2)"/>
-            <line x1="14" y1="78" x2="86" y2="78" stroke="rgba(249,115,22,.3)" stroke-width="1"/>
-            <rect x="14" y="88" width="40" height="6" rx="3" fill="rgba(255,255,255,.2)"/>
-            <rect x="58" y="88" width="28" height="6" rx="3" fill="rgba(249,115,22,.8)"/>
-            <rect x="14" y="108" width="72" height="14" rx="7" fill="url(#og2)"/>
-            <text x="50" y="119" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" font-weight="500" fill="white">ENVIAR PDF</text>
-          </g>
-          <g transform="translate(170,100)">
-            <line x1="0" y1="10" x2="40" y2="10" stroke="rgba(249,115,22,.5)" stroke-width="1.5"/>
-            <polygon points="35,5 45,10 35,15" fill="rgba(249,115,22,.5)"/>
-          </g>
-          <g transform="translate(225,75)">
-            <rect x="0" y="0" width="70" height="70" rx="35" fill="rgba(37,211,102,.15)" stroke="rgba(37,211,102,.4)" stroke-width="1.5"/>
-            <circle cx="35" cy="32" r="18" fill="none" stroke="rgba(37,211,102,.8)" stroke-width="2"/>
-            <path d="M26,38 C28,44 36,46 42,43 L46,45 L44,40 C47,36 47,30 43,27 C39,23 31,24 28,28 C25,32 24,36 26,38Z" fill="rgba(37,211,102,.8)"/>
-            <text x="35" y="60" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="rgba(37,211,102,.7)">WhatsApp</text>
-          </g>
-          <text x="330" y="68" font-family="Syne,sans-serif" font-size="26" font-weight="800" fill="white">Orça Ágil</text>
-          <text x="330" y="92" font-family="DM Sans,sans-serif" font-size="12" font-weight="300" fill="rgba(255,200,150,.8)">Orçamentos profissionais direto do celular</text>
-          <g transform="translate(330,110)">
-            <rect x="0" y="0" width="168" height="26" rx="13" fill="rgba(249,115,22,.2)" stroke="rgba(249,115,22,.4)" stroke-width="1"/>
-            <text x="84" y="17" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="500" fill="rgba(255,220,180,1)">Profissionais Autônomos</text>
-          </g>
-          <g transform="translate(506,110)">
-            <rect x="0" y="0" width="148" height="26" rx="13" fill="rgba(249,115,22,.2)" stroke="rgba(249,115,22,.4)" stroke-width="1"/>
-            <text x="74" y="17" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" font-weight="500" fill="rgba(255,220,180,1)">Pequenas Empresas</text>
-          </g>
-          <g transform="translate(776,25)">
-            <rect x="0" y="0" width="88" height="110" rx="8" fill="rgba(255,255,255,.08)" stroke="rgba(249,115,22,.3)" stroke-width="1"/>
-            <rect x="10" y="14" width="68" height="6" rx="3" fill="rgba(249,115,22,.5)"/>
-            <rect x="10" y="28" width="50" height="4" rx="2" fill="rgba(255,255,255,.2)"/>
-            <rect x="10" y="40" width="55" height="4" rx="2" fill="rgba(255,255,255,.15)"/>
-            <rect x="10" y="52" width="45" height="4" rx="2" fill="rgba(255,255,255,.15)"/>
-            <line x1="10" y1="64" x2="78" y2="64" stroke="rgba(249,115,22,.2)" stroke-width="1"/>
-            <rect x="10" y="72" width="35" height="4" rx="2" fill="rgba(255,255,255,.2)"/>
-            <rect x="50" y="72" width="28" height="4" rx="2" fill="rgba(249,115,22,.6)"/>
-            <rect x="10" y="88" width="68" height="14" rx="7" fill="rgba(249,115,22,.4)"/>
-            <text x="44" y="98" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="rgba(255,255,255,.8)">RECIBO</text>
-          </g>
-        </svg>
-        <div class="app-body">
-          <div class="app-info">
-            <div class="app-status soon">Em breve</div>
-            <h3>Orça Ágil</h3>
-            <p>Para eletricistas, encanadores, marceneiros, pintores e mecânicos. Orçamentos em PDF via WhatsApp, controle de pedidos e recibos em um só lugar.</p>
-            <div class="app-tags"><span class="tag">Serviços</span><span class="tag">Orçamento</span><span class="tag">Android</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- PRONTOIMOB -->
-      <div class="app-item reveal">
-        <svg class="app-banner" viewBox="0 0 900 220" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="pg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#071020"/><stop offset="100%" stop-color="#0d1e3a"/></linearGradient>
-          </defs>
-          <rect width="900" height="220" fill="url(#pg)"/>
-          <g stroke="rgba(255,180,0,.04)" stroke-width="1">
-            <line x1="0" y1="55" x2="900" y2="55"/><line x1="0" y1="110" x2="900" y2="110"/><line x1="0" y1="165" x2="900" y2="165"/>
-            <line x1="225" y1="0" x2="225" y2="220"/><line x1="450" y1="0" x2="450" y2="220"/><line x1="675" y1="0" x2="675" y2="220"/>
-          </g>
-          <circle cx="80" cy="110" r="160" fill="rgba(255,180,0,.03)" stroke="rgba(255,180,0,.06)" stroke-width="1"/>
-          <g transform="translate(38,30)">
-            <polygon points="75,10 140,65 10,65" fill="rgba(255,255,255,.75)"/>
-            <rect x="105" y="28" width="14" height="24" rx="2" fill="rgba(255,255,255,.5)"/>
-            <rect x="22" y="63" width="106" height="70" rx="3" fill="rgba(255,255,255,.6)"/>
-            <rect x="62" y="88" width="28" height="45" rx="3" fill="rgba(255,180,0,.8)"/>
-            <circle cx="85" cy="112" r="3" fill="rgba(255,140,0,1)"/>
-            <rect x="30" y="75" width="22" height="20" rx="2" fill="rgba(255,180,0,.5)"/>
-            <rect x="96" y="75" width="22" height="20" rx="2" fill="rgba(255,180,0,.5)"/>
-          </g>
-          <g transform="translate(220,20)">
-            <rect x="0" y="0" width="310" height="175" rx="10" fill="rgba(255,255,255,.04)" stroke="rgba(255,180,0,.12)" stroke-width="1"/>
-            <rect x="0" y="0" width="310" height="36" rx="10" fill="rgba(255,180,0,.08)"/>
-            <rect x="0" y="26" width="310" height="10" fill="rgba(255,180,0,.08)"/>
-            <text x="16" y="23" font-family="Syne,sans-serif" font-size="12" font-weight="700" fill="rgba(255,200,50,.9)">Apartamento 3 dormitórios</text>
-            <rect x="16" y="48" width="278" height="6" rx="3" fill="rgba(255,255,255,.18)"/>
-            <rect x="16" y="62" width="240" height="5" rx="2.5" fill="rgba(255,255,255,.1)"/>
-            <rect x="16" y="74" width="260" height="5" rx="2.5" fill="rgba(255,255,255,.1)"/>
-            <rect x="16" y="86" width="220" height="5" rx="2.5" fill="rgba(255,255,255,.08)"/>
-            <rect x="16" y="98" width="245" height="5" rx="2.5" fill="rgba(255,255,255,.08)"/>
-            <rect x="16" y="110" width="200" height="5" rx="2.5" fill="rgba(255,255,255,.08)"/>
-            <line x1="16" y1="128" x2="294" y2="128" stroke="rgba(255,180,0,.1)" stroke-width="1"/>
-            <text x="16" y="148" font-family="Syne,sans-serif" font-size="16" font-weight="700" fill="rgba(255,200,50,.9)">R$ 450.000</text>
-            <text x="200" y="148" font-family="DM Sans,sans-serif" font-size="13" fill="rgba(255,180,0,.7)">★★★★★</text>
-          </g>
-          <g transform="translate(558,30)">
-            <rect x="0" y="0" width="58" height="58" rx="10" fill="rgba(255,180,0,.08)" stroke="rgba(255,180,0,.15)" stroke-width="1"/>
-            <rect x="14" y="16" width="30" height="32" rx="2" fill="rgba(255,180,0,.3)"/>
-            <rect x="10" y="26" width="10" height="22" rx="1" fill="rgba(255,180,0,.2)"/>
-            <rect x="38" y="30" width="10" height="18" rx="1" fill="rgba(255,180,0,.2)"/>
-            <rect x="20" y="20" width="6" height="6" rx="1" fill="rgba(255,255,255,.4)"/>
-            <rect x="32" y="20" width="6" height="6" rx="1" fill="rgba(255,255,255,.4)"/>
-            <rect x="20" y="32" width="6" height="6" rx="1" fill="rgba(255,255,255,.4)"/>
-            <rect x="32" y="32" width="6" height="6" rx="1" fill="rgba(255,255,255,.4)"/>
-          </g>
-          <g transform="translate(630,30)"><rect x="0" y="0" width="58" height="58" rx="10" fill="rgba(255,180,0,.08)" stroke="rgba(255,180,0,.15)" stroke-width="1"/><text x="29" y="38" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="26" fill="rgba(255,180,0,.6)">📱</text></g>
-          <g transform="translate(702,30)"><rect x="0" y="0" width="58" height="58" rx="10" fill="rgba(255,180,0,.08)" stroke="rgba(255,180,0,.15)" stroke-width="1"/><text x="29" y="38" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="26" fill="rgba(255,180,0,.6)">🔑</text></g>
-          <g transform="translate(774,30)"><rect x="0" y="0" width="58" height="58" rx="10" fill="rgba(255,180,0,.08)" stroke="rgba(255,180,0,.15)" stroke-width="1"/><text x="29" y="38" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="26" fill="rgba(255,180,0,.6)">📈</text></g>
-          <text x="558" y="118" font-family="Syne,sans-serif" font-size="20" font-weight="800" fill="white">ProntoImob</text>
-          <text x="558" y="140" font-family="DM Sans,sans-serif" font-size="11" font-weight="300" fill="rgba(255,200,50,.5)">Anúncios profissionais para o mercado imobiliário</text>
-          <rect x="558" y="155" width="76" height="22" rx="11" fill="rgba(255,180,0,.1)" stroke="rgba(255,180,0,.2)" stroke-width="1"/>
-          <text x="596" y="170" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="rgba(255,200,50,.8)">Corretores</text>
-          <rect x="642" y="155" width="82" height="22" rx="11" fill="rgba(255,180,0,.1)" stroke="rgba(255,180,0,.2)" stroke-width="1"/>
-          <text x="683" y="170" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="rgba(255,200,50,.8)">Imobiliárias</text>
-          <rect x="732" y="155" width="96" height="22" rx="11" fill="rgba(255,180,0,.1)" stroke="rgba(255,180,0,.2)" stroke-width="1"/>
-          <text x="780" y="170" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="rgba(255,200,50,.8)">Proprietários</text>
-        </svg>
-        <div class="app-body">
-          <div class="app-info">
-            <div class="app-status live">Publicado</div>
-            <h3>ProntoImob</h3>
-            <p>Textos de qualidade profissional para todos os profissionais do mercado imobiliário. Anúncios melhores, vendas mais rápidas e maior percepção de valor do imóvel.</p>
-            <div class="app-tags"><span class="tag">Imobiliário</span><span class="tag">Tecnologia</span><span class="tag">Web</span></div>
-          </div>
-          <a href="https://prontoimob.com.br/" target="_blank" rel="noopener" class="app-cta">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            Acessar
-          </a>
-        </div>
-      </div>
-
+    <div class="apps-grid" id="apps-grid">
+      <!-- preenchido via JavaScript + config.json -->
     </div>
-    <p class="reveal" style="text-align:center;margin-top:2.5rem;font-size:.8rem;color:rgba(226,234,245,.25);letter-spacing:.06em;">Novos aplicativos em desenvolvimento contínuo.</p>
+    <p class="reveal" style="text-align:center;margin-top:2.5rem;font-size:.8rem;color:rgba(221,230,240,.22);letter-spacing:.06em;">
+      Novos aplicativos em desenvolvimento contínuo.
+    </p>
   </div>
 </section>
 
+<!-- CONTATO -->
 <section id="contato">
   <div class="section-inner" style="text-align:center;">
     <div class="sec-tag reveal" style="justify-content:center;">Fale conosco</div>
@@ -459,6 +824,7 @@
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <a href="/" class="footer-logo">Support Soluções Corporativas Ltda.</a>
@@ -468,15 +834,21 @@
       <li><a href="/privacidade">Privacidade</a></li>
       <li><a href="mailto:contato@susco.com.br">Contato</a></li>
     </ul>
-    <p class="footer-copy">&copy; <span id="year"></span> Support Soluções Corporativas Ltda. &nbsp;|&nbsp; CNPJ 43.225.621/0001-86 &nbsp;|&nbsp; susco.com.br</p>
+    <p class="footer-copy">
+      &copy; <span id="year"></span> Support Soluções Corporativas Ltda. &nbsp;|&nbsp; CNPJ 43.225.621/0001-86 &nbsp;|&nbsp; susco.com.br
+    </p>
   </div>
 </footer>
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Menu mobile
   const toggle = document.getElementById('menuToggle');
   const nav = document.getElementById('navbar');
   toggle.addEventListener('click', () => nav.classList.toggle('open'));
+
+  // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const obs = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => {
@@ -487,6 +859,71 @@
     });
   }, { threshold: 0.1 });
   reveals.forEach(r => obs.observe(r));
+
+  // ── APPS DINÂMICOS via config.json ──
+  const appsConfig = [
+    {
+      key: 'crono_pro',
+      icon: 'images/crono_icon.png',
+      descricao: 'Estimativas rápidas e precisas de capacidade produtiva para supervisores e analistas no chão de fábrica.',
+      tags: ['Industrial', 'Produtividade', 'Android']
+    },
+    {
+      key: 'orca_agil',
+      icon: 'images/orca_agil_icon.png',
+      descricao: 'Orçamentos em PDF via WhatsApp, controle de pedidos e recibos para profissionais autônomos e pequenas empresas.',
+      tags: ['Serviços', 'Orçamento', 'Android / iOS']
+    }
+  ];
+
+  const storeIcon = (type) => {
+    if (type === 'play') return `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
+    return `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M12 8v8M8 12h8"/></svg>`;
+  };
+
+  fetch('config.json')
+    .then(r => r.json())
+    .then(config => {
+      const grid = document.getElementById('apps-grid');
+      grid.innerHTML = '';
+
+      appsConfig.forEach(app => {
+        const data = config.apps[app.key];
+        if (!data) return;
+
+        const links = [];
+        if (data.play_store) {
+          links.push(`<a href="${data.play_store}" target="_blank" rel="noopener" class="store-btn">${storeIcon('play')} Google Play</a>`);
+        }
+        if (data.app_store) {
+          links.push(`<a href="${data.app_store}" target="_blank" rel="noopener" class="store-btn">${storeIcon('apple')} App Store</a>`);
+        }
+
+        const tags = app.tags.map(t => `<span style="font-size:.68rem;padding:.2rem .65rem;border-radius:999px;background:rgba(96,165,250,.08);border:1px solid rgba(96,165,250,.14);color:rgba(96,165,250,.65);letter-spacing:.04em;">${t}</span>`).join('');
+
+        grid.innerHTML += `
+          <div class="app-card reveal">
+            <div class="app-icon">
+              <img src="${app.icon}" alt="${data.nome}" loading="lazy"/>
+            </div>
+            <div class="app-info">
+              <div class="app-status">Publicado</div>
+              <h3>${data.nome}</h3>
+              <p>${app.descricao}</p>
+              <div style="display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.9rem;">${tags}</div>
+              <div class="app-links">${links.join('')}</div>
+            </div>
+          </div>`;
+      });
+
+      // Reativar reveal nos novos elementos
+      document.querySelectorAll('.app-card.reveal').forEach(r => obs.observe(r));
+    })
+    .catch(() => {
+      // Fallback se config.json não carregar
+      document.getElementById('apps-grid').innerHTML = `
+        <p style="color:rgba(221,230,240,.3);font-size:.9rem;">Carregando aplicativos...</p>`;
+    });
 </script>
 </body>
 </html>
