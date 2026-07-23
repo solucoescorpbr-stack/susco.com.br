@@ -4,7 +4,7 @@
       "nome": "Crono Industrial",
       "sub": "Cronoanálise profissional",
       "status": "live",
-      "icon_b64": "",
+      "icon_b64": "crono_icon.png",
       "play_store": "https://play.google.com/store/apps/details?id=br.com.susco.cronoindustrial",
       "app_store": ""
     },
@@ -12,7 +12,7 @@
       "nome": "Crono Pro Industrial",
       "sub": "Estimativa de produtividade",
       "status": "live",
-      "icon_b64": "",
+      "icon_b64": "crono_ind_icon.png",
       "play_store": "https://play.google.com/store/apps/details?id=br.com.calculadoraproducao.app",
       "app_store": ""
     },
@@ -20,7 +20,7 @@
       "nome": "Orça Ágil",
       "sub": "Orçamentos via WhatsApp",
       "status": "live",
-      "icon_b64": "",
+      "icon_b64": "orca_agil_icon.png",
       "play_store": "https://play.google.com/store/apps/details?id=br.com.orcagil",
       "app_store": ""
     },
