@@ -1,13 +1,38 @@
 {
   "apps": {
-    "crono_pro": {
+    "crono_industrial": {
+      "nome": "Crono Industrial",
+      "sub": "Cronoanálise profissional",
+      "status": "live",
+      "icon_b64": "",
+      "play_store": "https://play.google.com/store/apps/details?id=br.com.susco.cronoindustrial",
+      "app_store": ""
+    },
+    "crono_pro_industrial": {
       "nome": "Crono Pro Industrial",
+      "sub": "Estimativa de produtividade",
+      "status": "live",
+      "icon_b64": "",
       "play_store": "https://play.google.com/store/apps/details?id=br.com.calculadoraproducao.app",
       "app_store": ""
     },
     "orca_agil": {
       "nome": "Orça Ágil",
-      "play_store": "https://play.google.com/store/apps/details?id=br.com.orcagil",
+      "sub": "Orçamentos via WhatsApp",
+      "status": "live",
+      "icon_b64": "",
+      "play_store": "https://play.google.com/store/apps/details?id=br.com.orcagil.app",
+      "app_store": ""
+    },
+    "tncalc": {
+      "nome": "TNCalc",
+      "sub": "Terapia nutricional clínica",
+      "status": "soon",
+      "icon_b64": "",
+      "icon_emoji": "🥗",
+      "icon_bg": "rgba(16,185,129,.12)",
+      "icon_border": "rgba(16,185,129,.22)",
+      "play_store": "",
       "app_store": ""
     }
   }

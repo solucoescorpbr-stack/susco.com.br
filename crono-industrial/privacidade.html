@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de Privacidade — Crono Industrial - Support Soluções Corporativas</title>
+  <meta name="description" content="Política de Privacidade — Crono Industrial do aplicativo Crono Industrial da Support Soluções Corporativas Ltda." />
+  <link rel="canonical" href="https://susco.com.br/crono-industrial/privacidade" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #1e2d3d; --border: rgba(255,255,255,.08);
+      --text: #dde6f0; --muted: rgba(221,230,240,.42); --white: #ffffff;
+      --font-head: 'Syne', sans-serif; --font-body: 'DM Sans', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 16px; line-height: 1.7; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 5%; border-bottom: 1px solid var(--border); background: rgba(30,45,61,.95); backdrop-filter: blur(14px); }
+    .nav-in { display: flex; align-items: center; justify-content: space-between; height: 66px; max-width: 1160px; margin: 0 auto; }
+    .brand { font-family: var(--font-body); font-weight: 500; font-size: .82rem; letter-spacing: .06em; color: var(--white); text-decoration: none; }
+    .back { color: rgba(221,230,240,.4); text-decoration: none; font-size: .78rem; display: flex; align-items: center; gap: .4rem; transition: color .2s; letter-spacing: .04em; }
+    .back:hover { color: var(--white); }
+
+    .page-hero { padding: 120px 5% 60px; border-bottom: 1px solid var(--border); }
+    .hero-inner { max-width: 820px; margin: 0 auto; }
+    .sec-tag { font-size: .65rem; letter-spacing: .22em; text-transform: uppercase; color: rgba(221,230,240,.28); font-weight: 500; margin-bottom: 1rem; display: flex; align-items: center; gap: .6rem; }
+    .sec-tag::before { content: ''; width: 16px; height: 1px; background: rgba(221,230,240,.18); }
+    h1 { font-family: var(--font-head); font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; color: var(--white); letter-spacing: -.04em; line-height: 1.1; margin-bottom: 1rem; }
+    .meta { display: flex; align-items: center; gap: .8rem; font-size: .78rem; color: rgba(221,230,240,.25); letter-spacing: .04em; flex-wrap: wrap; }
+    .meta-dot { width: 5px; height: 5px; border-radius: 50%; background: #34d399; box-shadow: 0 0 0 3px rgba(52,211,153,.12); flex-shrink: 0; }
+
+    .content { max-width: 820px; margin: 0 auto; padding: 60px 5% 80px; }
+
+    .indice { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07); border-left: 2px solid rgba(96,165,250,.35); border-radius: 6px; padding: 1.5rem 1.8rem; margin-bottom: 3rem; }
+    .indice-title { font-size: .65rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(221,230,240,.28); font-weight: 500; margin-bottom: 1rem; }
+    .indice ol { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: .4rem .5rem; }
+    .indice li { display: flex; align-items: center; gap: .5rem; font-size: .78rem; }
+    .indice li::before { content: attr(data-n); font-size: .65rem; color: rgba(96,165,250,.5); font-weight: 600; min-width: 22px; }
+    .indice a { color: rgba(221,230,240,.42); text-decoration: none; transition: color .2s; }
+    .indice a:hover { color: rgba(221,230,240,.85); }
+
+    .sec { margin-bottom: 2.5rem; scroll-margin-top: 80px; }
+    .sec-header { display: flex; align-items: center; gap: .8rem; margin-bottom: 1rem; padding-bottom: .8rem; border-bottom: 1px solid rgba(255,255,255,.05); }
+    .sec-num { font-size: .65rem; font-weight: 600; color: rgba(96,165,250,.5); letter-spacing: .1em; min-width: 28px; }
+    h2 { font-family: var(--font-head); font-size: 1.05rem; font-weight: 700; color: var(--white); letter-spacing: -.01em; }
+    p { color: var(--muted); font-size: .9rem; font-weight: 300; line-height: 1.85; margin-bottom: .9rem; }
+    p:last-child { margin-bottom: 0; }
+    p strong { color: var(--text); font-weight: 500; }
+    ul { list-style: none; display: grid; gap: .5rem; margin: .8rem 0; }
+    ul li { display: flex; align-items: flex-start; gap: .7rem; font-size: .88rem; color: var(--muted); font-weight: 300; line-height: 1.75; }
+    ul li::before { content: '→'; color: rgba(96,165,250,.45); font-size: .8rem; flex-shrink: 0; margin-top: .1rem; }
+    ul li strong { color: var(--text); font-weight: 500; }
+    a { color: rgba(96,165,250,.7); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .highlight { background: rgba(255,255,255,.02); border: 1px solid rgba(255,255,255,.06); border-left: 2px solid rgba(96,165,250,.3); border-radius: 6px; padding: 1rem 1.3rem; margin: 1rem 0; font-size: .85rem; color: rgba(221,230,240,.45); font-weight: 300; line-height: 1.75; }
+
+    .contato-box { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07); border-radius: 8px; padding: 2rem; text-align: center; margin-top: 3rem; }
+    .contato-box h2 { font-size: 1.2rem; margin-bottom: .5rem; }
+    .contato-box p { margin-bottom: 1.5rem; }
+    .btn-email { display: inline-flex; align-items: center; gap: .5rem; border: 1px solid rgba(255,255,255,.18); color: rgba(221,230,240,.65); padding: .7rem 1.6rem; border-radius: 6px; font-size: .8rem; letter-spacing: .05em; transition: border-color .2s, color .2s; text-decoration: none; }
+    .btn-email:hover { border-color: rgba(255,255,255,.38); color: var(--white); text-decoration: none; }
+
+    .page-links { display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem; flex-wrap: wrap; }
+    .page-link { font-size: .75rem; color: rgba(221,230,240,.35); text-decoration: none; border: 1px solid rgba(255,255,255,.08); padding: .3rem .8rem; border-radius: 4px; letter-spacing: .05em; transition: color .2s, border-color .2s; }
+    .page-link:hover { color: rgba(221,230,240,.7); border-color: rgba(255,255,255,.2); text-decoration: none; }
+
+    footer { text-align: center; padding: 2rem 5%; border-top: 1px solid var(--border); font-size: .72rem; color: rgba(255,255,255,.18); letter-spacing: .06em; }
+    footer a { color: rgba(255,255,255,.25); text-decoration: none; }
+    footer a:hover { color: rgba(255,255,255,.5); }
+
+    @media (max-width: 600px) {
+      .indice ol { grid-template-columns: 1fr; }
+      .page-hero { padding: 100px 5% 50px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a href="/" class="brand">Support Soluções Corporativas</a>
+    <a href="/" class="back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+      Voltar ao site
+    </a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="hero-inner">
+    <div class="sec-tag">Legal · Crono Industrial</div>
+    <h1>Política de Privacidade — Crono Industrial</h1>
+    <div class="meta">
+      <span class="meta-dot"></span>
+      <span>Support Soluções Corporativas Ltda.</span>
+      <span>·</span>
+      <span>CNPJ 43.225.621/0001-86</span>
+      <span>·</span>
+      <span>Última atualização: julho de 2026</span>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="indice">
+    <div class="indice-title">Índice</div>
+    <ol><li data-n="00"><a href="#s0">Introdução</a></li>
+<li data-n="01"><a href="#s1">Informações que coletamos</a></li>
+<li data-n="02"><a href="#s2">Como usamos as informações</a></li>
+<li data-n="03"><a href="#s3">Armazenamento de dados</a></li>
+<li data-n="04"><a href="#s4">Compartilhamento de dados</a></li>
+<li data-n="05"><a href="#s5">Permissões do aplicativo</a></li>
+<li data-n="06"><a href="#s6">Compras e pagamentos</a></li>
+<li data-n="07"><a href="#s7">Retenção de dados</a></li>
+<li data-n="08"><a href="#s8">Segurança</a></li>
+<li data-n="09"><a href="#s9">Menores de idade</a></li>
+<li data-n="10"><a href="#s10">Alterações nesta política</a></li>
+<li data-n="11"><a href="#s11">Contato</a></li></ol>
+  </div>
+
+  <div class="sec" id="s0">
+    <div class="sec-header"><span class="sec-num">000</span><h2>Introdução</h2></div>
+    <p>Esta Política de Privacidade descreve como a <strong>Support Soluções Corporativas Ltda.</strong> (CNPJ 43.225.621/0001-86), por meio do aplicativo <strong>Crono Industrial</strong>, coleta, usa e protege as informações dos seus usuários.</p>
+    <p>Ao instalar ou utilizar o Crono Industrial, você concorda com os termos desta política. Recomendamos a leitura completa antes de utilizar o aplicativo.</p>
+    <p>Resumo simples: o Crono Industrial funciona de forma <strong>100% local</strong> no seu aparelho. Não existe conta de usuário, login ou sincronização na nuvem. Seus estudos de cronoanálise, tempos e resultados nunca saem do seu dispositivo, exceto quando você mesmo decide exportá-los e compartilhá-los.</p>
+  </div>
+<div class="sec" id="s1">
+    <div class="sec-header"><span class="sec-num">001</span><h2>Informações que coletamos</h2></div>
+    <p>O Crono Industrial coleta apenas as informações estritamente necessárias para seu funcionamento, e a grande maioria delas nunca sai do seu aparelho:</p>
+    <ul>
+      <li><strong>Dados dos estudos de cronoanálise:</strong> nomes de estudos, etapas, tempos cronometrados, observações, configurações de empresa e setor. Armazenados exclusivamente no armazenamento local do dispositivo (banco de dados interno do aplicativo).</li>
+      <li><strong>Código de acesso:</strong> quando você insere um código promocional, apenas o código digitado é enviado ao nosso serviço de validação (Google Apps Script) para verificar sua validade. Nenhum dado do seu estudo acompanha essa consulta.</li>
+      <li><strong>Dados de assinatura:</strong> caso você opte por assinar a versão completa, as transações são processadas pela Google Play Store ou pela Apple App Store, e gerenciadas com o auxílio da plataforma RevenueCat para validar seu acesso. Não temos acesso a dados de cartão ou informações financeiras.</li>
+    </ul>
+    <p>Não coletamos nome, e-mail, localização, contatos ou qualquer outro dado pessoal de forma automática. O aplicativo não utiliza câmera, microfone ou acesso à galeria de fotos.</p>
+  </div>
+<div class="sec" id="s2">
+    <div class="sec-header"><span class="sec-num">002</span><h2>Como usamos as informações</h2></div>
+    <p>As informações tratadas pelo aplicativo são utilizadas exclusivamente para:</p>
+    <ul>
+      <li>Calcular tempos-padrão e estimativas de produção a partir dos dados que você insere</li>
+      <li>Manter seus estudos de cronoanálise salvos no seu dispositivo</li>
+      <li>Gerar relatórios em Excel e PDF, a seu pedido</li>
+      <li>Validar códigos de acesso promocionais</li>
+      <li>Verificar e ativar assinaturas adquiridas via loja de aplicativos</li>
+      <li>Controlar o período de avaliação gratuita de 60 dias</li>
+    </ul>
+    <p>Não utilizamos suas informações para fins publicitários, análise de comportamento ou qualquer finalidade além das descritas acima.</p>
+  </div>
+<div class="sec" id="s3">
+    <div class="sec-header"><span class="sec-num">003</span><h2>Armazenamento de dados</h2></div>
+    <p>Todos os dados dos seus estudos de cronoanálise são armazenados <strong>localmente no seu dispositivo</strong>, em um banco de dados interno do aplicativo. Esses dados <strong>não são enviados a servidores externos</strong> e permanecem sob seu controle total. Ao desinstalar o aplicativo, todos os dados locais são removidos permanentemente.</p>
+    <p>O único dado que trafega externamente, fora do processo de assinatura, é o código de acesso promocional, enviado ao Google Apps Script exclusivamente para verificar sua autenticidade.</p>
+  </div>
+<div class="sec" id="s4">
+    <div class="sec-header"><span class="sec-num">004</span><h2>Compartilhamento de dados</h2></div>
+    <p><strong>Não vendemos, alugamos ou compartilhamos</strong> suas informações pessoais com terceiros, exceto nas seguintes situações limitadas:</p>
+    <ul>
+      <li><strong>RevenueCat e lojas de aplicativos:</strong> dados de transação de assinatura são gerenciados pelo RevenueCat e pela Google Play Store / Apple App Store, conforme suas respectivas políticas de privacidade.</li>
+      <li><strong>Google Apps Script:</strong> utilizado exclusivamente para validação de códigos de acesso promocionais. Nenhum dado pessoal é transmitido nesse processo.</li>
+      <li><strong>Exportação de relatórios:</strong> quando você exporta um estudo em Excel ou PDF, o arquivo é gerado localmente e compartilhado através do sistema de compartilhamento nativo do seu celular (e-mail, WhatsApp, Google Drive, etc.), a seu critério e sob seu controle exclusivo.</li>
+      <li><strong>Exigência legal:</strong> podemos divulgar informações se exigido por lei ou ordem judicial.</li>
+    </ul>
+  </div>
+<div class="sec" id="s5">
+    <div class="sec-header"><span class="sec-num">005</span><h2>Permissões do aplicativo</h2></div>
+    <p>O Crono Industrial pode solicitar as seguintes permissões no seu dispositivo:</p>
+    <ul>
+      <li><strong>Armazenamento:</strong> para salvar e exportar relatórios em Excel e PDF gerados pelo aplicativo.</li>
+      <li><strong>Internet:</strong> necessária exclusivamente para validação de códigos de acesso promocionais e processamento de assinaturas via loja de aplicativos.</li>
+    </ul>
+    <p>O aplicativo não solicita acesso a câmera, microfone, contatos, localização ou galeria de fotos.</p>
+  </div>
+<div class="sec" id="s6">
+    <div class="sec-header"><span class="sec-num">006</span><h2>Compras e pagamentos</h2></div>
+    <p>O aplicativo oferece um período de avaliação gratuita de <strong>60 dias</strong>, após o qual é necessária uma assinatura mensal ou anual para continuar utilizando os recursos, ou a ativação de um código de acesso promocional.</p>
+    <p>Todos os pagamentos são processados de forma segura pela <strong>Google Play Store</strong> e pela <strong>Apple App Store</strong>, com o auxílio da plataforma <strong>RevenueCat</strong> para validação do acesso. A Support Soluções Corporativas Ltda. não tem acesso a dados de cartão de crédito, débito ou qualquer informação financeira do usuário. Em caso de dúvidas sobre cobranças, cancelamentos ou reembolsos, o usuário deve contatar diretamente o suporte da loja correspondente.</p>
+  </div>
+<div class="sec" id="s7">
+    <div class="sec-header"><span class="sec-num">007</span><h2>Retenção de dados</h2></div>
+    <p>Os dados armazenados localmente no dispositivo são mantidos enquanto o aplicativo estiver instalado. O usuário pode a qualquer momento:</p>
+    <ul>
+      <li>Excluir estudos individuais dentro do próprio aplicativo</li>
+      <li>Desinstalar o aplicativo para remover todos os dados locais de forma permanente</li>
+      <li>Solicitar esclarecimentos sobre dados por e-mail</li>
+    </ul>
+  </div>
+<div class="sec" id="s8">
+    <div class="sec-header"><span class="sec-num">008</span><h2>Segurança</h2></div>
+    <p>Adotamos medidas técnicas para proteger as informações dos usuários, incluindo:</p>
+    <ul>
+      <li>Armazenamento local, sem transmissão desnecessária de dados a servidores externos</li>
+      <li>Comunicação com serviços externos via HTTPS (criptografado)</li>
+      <li>Processamento de pagamentos integralmente pelas lojas de aplicativos, sem exposição de dados financeiros ao desenvolvedor</li>
+    </ul>
+    <p>Em caso de incidente de segurança, notificaremos os usuários afetados conforme exigido pela LGPD.</p>
+  </div>
+<div class="sec" id="s9">
+    <div class="sec-header"><span class="sec-num">009</span><h2>Menores de idade</h2></div>
+    <p>O aplicativo <strong>Crono Industrial</strong> é destinado a uso profissional em ambiente industrial e não é direcionado a menores de 18 anos. Não coletamos intencionalmente dados de menores de idade.</p>
+  </div>
+<div class="sec" id="s10">
+    <div class="sec-header"><span class="sec-num">010</span><h2>Alterações nesta política</h2></div>
+    <p>Podemos atualizar esta Política de Privacidade periodicamente. Quando houver alterações relevantes, notificaremos os usuários por meio de um aviso dentro do aplicativo ou no site susco.com.br. O uso continuado do aplicativo após alterações constitui aceitação da política revisada.</p>
+  </div>
+<div class="sec" id="s11">
+    <div class="sec-header"><span class="sec-num">011</span><h2>Contato</h2></div>
+    <p>Para exercer seus direitos previstos na LGPD ou esclarecer dúvidas sobre esta política, entre em contato pelo e-mail abaixo.</p>
+    <h3>Entre em contato</h3>
+    <p>Dúvidas, solicitações ou reclamações sobre privacidade? Estamos à disposição.</p>
+    <p><a href="mailto:contato@susco.com.br">contato@susco.com.br</a></p>
+    <p>Support Soluções Corporativas Ltda. · CNPJ 43.225.621/0001-86</p>
+  </div>
+
+  <div class="contato-box">
+    <h2>Entre em contato</h2>
+    <p>Dúvidas, solicitações ou reclamações sobre privacidade? Estamos à disposição.</p>
+    <a href="mailto:contato@susco.com.br" class="btn-email">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      contato@susco.com.br
+    </a>
+    <div class="page-links">
+      <a href="/crono-industrial/privacidade" class="page-link">Política de Privacidade</a>
+      <a href="/crono-industrial/termos" class="page-link">Termos de Uso</a>
+    </div>
+    <p style="margin-top:1.2rem;font-size:.75rem;color:rgba(221,230,240,.18);">Support Soluções Corporativas Ltda. · CNPJ 43.225.621/0001-86</p>
+  </div>
+</div>
+
+<footer>
+  <p>© <script>document.write(new Date().getFullYear())</script> Support Soluções Corporativas Ltda. &nbsp;|&nbsp; <a href="/">susco.com.br</a> &nbsp;|&nbsp; CNPJ 43.225.621/0001-86</p>
+</footer>
+</body>
+</html>
