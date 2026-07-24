@@ -93,8 +93,10 @@
     .sobre-text p { color:var(--muted);font-size:.95rem;font-weight:300;line-height:1.85;margin-bottom:1.2rem; }
     .sobre-text p strong { color:var(--text);font-weight:500; }
     .sobre-stat { display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem; }
-    .big-num { font-family:var(--font-head);font-size:7rem;font-weight:800;color:rgba(255,255,255,.05);line-height:1;letter-spacing:-.06em;position:relative;text-align:center; }
-    .big-num span { position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:1.05rem;color:rgba(221,230,240,.45);text-align:center;line-height:1.4; }
+    .stat-card { background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:2.5rem 3rem;text-align:center;width:100%; }
+    .stat-num { font-family:var(--font-head);font-size:4.5rem;font-weight:800;color:#fff;line-height:1;letter-spacing:-.04em;margin-bottom:.5rem; }
+    .stat-num sup { font-size:2rem;color:rgba(221,230,240,.5);vertical-align:super; }
+    .stat-label { font-size:.78rem;color:rgba(221,230,240,.4);font-weight:300;line-height:1.6;letter-spacing:.04em; }
     .sobre-pills { display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center; }
     .pill { font-size:.72rem;padding:.3rem .9rem;border-radius:999px;border:1px solid rgba(255,255,255,.07);color:rgba(221,230,240,.32);letter-spacing:.06em; }
 
@@ -256,7 +258,10 @@
         <p>Nosso portfólio abrange segmentos industriais, de serviços e de saúde, com aplicativos publicados nas principais lojas e novos produtos em desenvolvimento contínuo.</p>
       </div>
       <div class="sobre-stat reveal">
-        <div class="big-num">25<span>25+ anos<br/>de experiência<br/>em tecnologia</span></div>
+        <div class="stat-card">
+          <div class="stat-num">25<sup>+</sup></div>
+          <div class="stat-label">anos de experiência<br/>em tecnologia industrial</div>
+        </div>
         <div class="sobre-pills">
           <span class="pill">Tecnologia Industrial</span>
           <span class="pill">Suporte Técnico</span>
@@ -356,20 +361,25 @@
     return `<a href="${url}" target="_blank" rel="noopener" class="store-tag">${label}</a>`;
   }
 
-  function appRow(app, config) {
+  function appRow(app) {
     const live = app.status === 'live';
-    const iconHtml = app.icon_b64
-      ? `<div class="app-ico"><img src="${app.icon_b64}" alt="${app.nome}" loading="lazy"/></div>`
-      : `<div class="app-ico-ph" style="background:${app.icon_bg};border:1px solid ${app.icon_border};">${app.icon_emoji}</div>`;
-    return `
-      <div class="app-row">
-        ${iconHtml}
-        <div class="app-row-info">
-          <div class="app-row-name">${config?.nome || app.nome}</div>
-          <div class="app-row-sub">${app.sub}</div>
-        </div>
-        <span class="${live ? 'badge-live' : 'badge-soon'}">${live ? 'Publicado' : 'Em breve'}</span>
-      </div>`;
+    let iconHtml;
+    if (app.icon_b64 && app.icon_b64.length > 0) {
+      const src = app.icon_b64.startsWith('data:') ? app.icon_b64 : ('images/' + app.icon_b64);
+      iconHtml = '<div class="app-ico"><img src="' + src + '" alt="' + app.nome + '"/></div>';
+    } else {
+      const bg = app.icon_bg || 'rgba(255,255,255,.08)';
+      const bd = app.icon_border || 'rgba(255,255,255,.15)';
+      const em = app.icon_emoji || '📱';
+      iconHtml = '<div class="app-ico-ph" style="background:' + bg + ';border:1px solid ' + bd + ';">' + em + '</div>';
+    }
+    return '<div class="app-row">' + iconHtml +
+      '<div class="app-row-info">' +
+      '<div class="app-row-name">' + app.nome + '</div>' +
+      '<div class="app-row-sub">' + (app.sub || '') + '</div>' +
+      '</div>' +
+      '<span class="' + (live ? 'badge-live' : 'badge-soon') + '">' + (live ? 'Publicado' : 'Em breve') + '</span>' +
+      '</div>';
   }
 
   fetch('config.json')
@@ -380,7 +390,7 @@
       SEGMENTS.forEach(seg => {
         const appsHtml = seg.apps.map(key => {
           const app = config.apps[key];
-          return app ? appRow(app, app) : '';
+          return app ? appRow(app) : '';
         }).join('');
         const storeKeys = ['play_store','app_store'];
         const storeLabels = {'play_store':'▶ Google Play','app_store':'🍎 App Store'};
