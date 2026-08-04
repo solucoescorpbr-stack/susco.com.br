@@ -27,7 +27,7 @@
     "tncalc": {
       "nome": "TNCalc",
       "sub": "Terapia nutricional clínica",
-      "status": "soon",
+      "status": "live",
       "icon_b64": "tncalc_icon.png",
       "icon_emoji": "",
       "icon_bg": "rgba(16,185,129,.12)",
