@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TNCalc | Baixar aplicativo</title>
+<meta name="description" content="TNCalc: prontuário de terapia nutricional para nutricionistas clínicos. Baixe na App Store ou no Google Play.">
+
+<!-- ================================================================
+     CONFIGURAÇÃO: confira estes dois endereços antes de publicar
+     ================================================================ -->
+<script>
+  var LINK_IOS     = "https://apps.apple.com/br/app/id6794928542";
+  var LINK_ANDROID = "https://play.google.com/store/apps/details?id=br.com.susco.tncalc";
+</script>
+
+<style>
+  :root{
+    --azul:#0E2A47;
+    --azul-claro:#164B7A;
+    --teal:#1B8A8F;
+    --branco:#FFFFFF;
+    --cinza:#5A6B7B;
+    --fundo:#F5F8FA;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--fundo);
+    color:var(--azul);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:32px 20px;
+    line-height:1.5;
+  }
+  .caixa{
+    width:100%;
+    max-width:420px;
+    background:var(--branco);
+    border-radius:16px;
+    padding:40px 28px 32px;
+    text-align:center;
+    box-shadow:0 2px 24px rgba(14,42,71,.08);
+  }
+  .marca{
+    font-size:34px;
+    font-weight:700;
+    letter-spacing:-.02em;
+    color:var(--azul);
+  }
+  .marca span{color:var(--teal)}
+  .sub{
+    margin-top:6px;
+    font-size:15px;
+    color:var(--cinza);
+  }
+  .linha{
+    width:44px;
+    height:3px;
+    background:var(--teal);
+    border-radius:2px;
+    margin:22px auto;
+  }
+  .frase{
+    font-size:17px;
+    font-weight:500;
+    margin-bottom:26px;
+  }
+  .status{
+    font-size:14px;
+    color:var(--cinza);
+    margin-bottom:22px;
+    min-height:20px;
+  }
+  .botao{
+    display:block;
+    width:100%;
+    padding:15px 18px;
+    margin-bottom:12px;
+    border-radius:10px;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:600;
+    background:var(--azul);
+    color:var(--branco);
+    transition:background .15s ease;
+  }
+  .botao:hover,.botao:focus{background:var(--azul-claro)}
+  .botao:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+  .botao.secundario{
+    background:var(--branco);
+    color:var(--azul);
+    border:1.5px solid #D5DEE6;
+  }
+  .botao.secundario:hover,.botao.secundario:focus{background:var(--fundo)}
+  .rodape{
+    margin-top:26px;
+    padding-top:18px;
+    border-top:1px solid #E6ECF1;
+    font-size:12px;
+    color:var(--cinza);
+  }
+  .rodape a{color:var(--cinza)}
+  @media (prefers-reduced-motion:no-preference){
+    .caixa{animation:entra .35s ease-out}
+    @keyframes entra{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  }
+</style>
+</head>
+<body>
+
+<main class="caixa">
+  <div class="marca">TN<span>Calc</span></div>
+  <p class="sub">Prontuário de terapia nutricional</p>
+
+  <div class="linha"></div>
+
+  <p class="frase">Avaliação, triagem e evolução do paciente na palma da mão.</p>
+
+  <p class="status" id="status">Escolha a loja do seu aparelho:</p>
+
+  <a class="botao" id="btn-ios" href="#">Baixar na App Store</a>
+  <a class="botao secundario" id="btn-android" href="#">Baixar no Google Play</a>
+
+  <p class="rodape">
+    Ferramenta de apoio ao nutricionista. A decisão clínica é sempre do profissional.<br>
+    Desenvolvido por Susco · <a href="/tncalc/privacidade.html">Política de privacidade</a>
+  </p>
+</main>
+
+<script>
+(function(){
+  var ua = navigator.userAgent || "";
+  var ehIOS = /iPad|iPhone|iPod/.test(ua) ||
+              (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  var ehAndroid = /Android/i.test(ua);
+
+  document.getElementById("btn-ios").href = LINK_IOS;
+  document.getElementById("btn-android").href = LINK_ANDROID;
+
+  // Coloque ?ficar=1 no fim do endereço para ver a página sem redirecionar
+  var ficar = window.location.search.indexOf("ficar=1") !== -1;
+  if (ficar) return;
+
+  var destino = ehIOS ? LINK_IOS : (ehAndroid ? LINK_ANDROID : null);
+  if (!destino) return;
+
+  document.getElementById("status").textContent = "Abrindo a loja do seu aparelho...";
+  setTimeout(function(){ window.location.replace(destino); }, 900);
+})();
+</script>
+
+</body>
+</html>
