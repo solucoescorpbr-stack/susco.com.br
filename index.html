@@ -2,314 +2,336 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Support Soluções Corporativas - susco.com.br</title>
   <meta name="description" content="Aplicativos corporativos desenvolvidos com experiência real de campo. Uma empresa sólida, com história e compromisso." />
   <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#ffffff" />
   <link rel="canonical" href="https://susco.com.br/" />
   <meta property="og:title" content="Support Soluções Corporativas" />
   <meta property="og:description" content="Tecnologia corporativa desenvolvida por quem conhece a operação." />
   <meta property="og:url" content="https://susco.com.br/" />
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
   <meta property="og:image" content="https://susco.com.br/images/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:image" content="https://susco.com.br/images/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://susco.com.br/images/og-image.png" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"Support Soluções Corporativas Ltda.","alternateName":"Susco","url":"https://susco.com.br/","email":"contato@susco.com.br","taxID":"43.225.621/0001-86","logo":"https://susco.com.br/images/og-image.png"}
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* Layout: corporativo claro. Conteúdo alinhado à esquerda numa grade de 1200px.
+       Um único destaque visual: a placa azul do hero, onde os aplicativos são os blocos do chip da Susco. */
     :root {
-      --bg: #1e2d3d; --surface: #253549; --card: #2d4560;
-      --border: rgba(255,255,255,.08); --border-card: rgba(255,255,255,.11);
-      --text: #dde6f0; --muted: rgba(221,230,240,.42); --white: #ffffff;
-      --radius: 8px; --font-head: 'Syne', sans-serif; --font-body: 'DM Sans', sans-serif;
+      color-scheme: light;
+      --white: #ffffff;
+      --mist: #f4f6f9;          /* fundo alternado, cinza azulado */
+      --line: #e3e8ee;
+      --navy: #1e2d3d;          /* azul da marca */
+      --navy-2: #2d4560;
+      --navy-deep: #16222f;
+      --ink: #1e2d3d;           /* títulos */
+      --body: #3e4d5e;          /* texto corrido */
+      --muted: #67768a;
+      --copper: #a8783a;        /* único acento, cobre da logo */
+      --copper-soft: #f5ecdf;
+      --on-navy: #e6edf4;
+      --on-navy-soft: #a9b8c8;
+      --ok: #0f8a5f;
+      --font-head: 'Sora', 'Segoe UI', system-ui, sans-serif;
+      --font-body: 'DM Sans', 'Segoe UI', system-ui, sans-serif;
+      --r-xs: 6px; --r-sm: 10px; --r-md: 14px; --r-lg: 22px;
+      --gutter: clamp(16px, 5vw, 48px);
+      --shadow: 0 1px 2px rgba(30,45,61,.06), 0 18px 40px -24px rgba(30,45,61,.28);
     }
-    html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 16px; line-height: 1.65; overflow-x: hidden; }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+    body { margin: 0; background: var(--white); color: var(--body); font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    h1, h2, h3 { font-family: var(--font-head); color: var(--ink); margin: 0; text-wrap: balance; }
+    p { margin: 0; text-wrap: pretty; }
+    ul { margin: 0; padding: 0; list-style: none; }
+    .wrap { max-width: 1200px; margin: 0 auto; padding-inline: var(--gutter); }
+    :focus-visible { outline: 2px solid var(--copper); outline-offset: 3px; border-radius: 4px; }
+    .skip { position: absolute; left: 1rem; top: -100px; z-index: 200; background: var(--navy); color: #fff; padding: .6rem 1rem; border-radius: var(--r-xs); }
+    .skip:focus { top: 1rem; }
+
+    /* Botões */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: .55rem; font: 600 .95rem/1 var(--font-body); text-decoration: none; padding: 1rem 1.55rem; border-radius: var(--r-sm); border: 1px solid transparent; cursor: pointer; transition: background .2s, border-color .2s, color .2s, transform .15s; }
+    .btn:active { transform: translateY(1px); }
+    .btn-navy { background: var(--navy); color: #fff; }
+    .btn-navy:hover { background: var(--navy-2); }
+    .btn-line { background: var(--white); color: var(--ink); border-color: #cfd7e0; }
+    .btn-line:hover { border-color: var(--navy); }
+    .link-arrow { display: inline-flex; align-items: center; gap: .4rem; font-weight: 600; color: var(--ink); text-decoration: none; padding: 1rem .2rem; border-bottom: 1px solid transparent; }
+    .link-arrow:hover { border-bottom-color: var(--copper); }
 
     /* NAV */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 5%; border-bottom: 1px solid var(--border); background: rgba(30,45,61,.93); backdrop-filter: blur(14px); }
-    .nav-in { display: flex; align-items: center; justify-content: space-between; height: 66px; max-width: 1160px; margin: 0 auto; }
-    .brand-name { font-family: var(--font-body); font-weight: 500; font-size: .82rem; letter-spacing: .06em; color: var(--white); text-decoration: none; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
-    .nav-links a { color: rgba(221,230,240,.38); text-decoration: none; font-size: .78rem; font-weight: 400; transition: color .2s; letter-spacing: .04em; }
-    .nav-links a:hover { color: var(--white); }
-    .nav-pill { border: 1px solid rgba(221,230,240,.22) !important; color: rgba(221,230,240,.65) !important; padding: .3rem .9rem; border-radius: var(--radius); transition: border-color .2s, color .2s !important; }
-    .nav-pill:hover { border-color: rgba(221,230,240,.5) !important; color: var(--white) !important; }
-    .menu-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: .4rem; }
-    .menu-toggle span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: .3s; }
+    .nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 100; background: rgba(255,255,255,.92); backdrop-filter: saturate(1.4) blur(12px); -webkit-backdrop-filter: saturate(1.4) blur(12px); border-bottom: 1px solid var(--line); }
+    .nav-in { display: flex; align-items: center; justify-content: space-between; gap: 1rem; height: 72px; }
+    .brand-name { font-weight: 600; font-size: .95rem; letter-spacing: .03em; color: var(--ink); text-decoration: none; }
+    .nav-links { display: flex; align-items: center; gap: 2.2rem; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: .95rem; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links .btn { color: #fff; padding: .7rem 1.15rem; font-size: .9rem; }
+    .menu-toggle { display: none; background: none; border: 1px solid var(--line); border-radius: var(--r-xs); padding: .6rem; cursor: pointer; }
+    .menu-toggle span { display: block; width: 20px; height: 2px; background: var(--ink); border-radius: 2px; transition: transform .25s, opacity .25s; }
+    .menu-toggle span + span { margin-top: 5px; }
+    .nav.open .menu-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav.open .menu-toggle span:nth-child(2) { opacity: 0; }
+    .nav.open .menu-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
     /* HERO */
-    #hero { min-height: 100vh; display: flex; align-items: center; padding: 100px 5% 70px; }
-    .hero-inner { max-width: 1160px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
-    .eyebrow { font-size: .65rem; letter-spacing: .22em; text-transform: uppercase; color: rgba(221,230,240,.28); font-weight: 400; margin-bottom: 1.4rem; display: flex; align-items: center; gap: .6rem; animation: fadeUp .6s ease both; }
-    .eyebrow::before { content: ''; width: 20px; height: 1px; background: rgba(221,230,240,.18); }
-    h1 { font-family: var(--font-head); font-size: clamp(2rem,3.8vw,3.2rem); font-weight: 800; color: var(--white); line-height: 1.1; letter-spacing: -.03em; margin-bottom: 1.2rem; animation: fadeUp .6s .1s ease both; }
-    h1 em { font-style: italic; font-family: var(--font-body); font-weight: 300; color: rgba(255,255,255,.45); }
-    .hero-sub { font-size: .9rem; color: var(--muted); font-weight: 300; line-height: 1.85; margin-bottom: 2.2rem; max-width: 360px; animation: fadeUp .6s .2s ease both; }
-    .hero-btns { display: flex; gap: .8rem; flex-wrap: wrap; margin-bottom: 2rem; animation: fadeUp .6s .3s ease both; }
-    .btn-primary { border: 1px solid rgba(255,255,255,.32); color: var(--white); padding: .65rem 1.5rem; border-radius: var(--radius); font-size: .78rem; font-weight: 500; text-decoration: none; letter-spacing: .05em; transition: background .2s; }
-    .btn-primary:hover { background: rgba(255,255,255,.08); }
-    .btn-secondary { border: 1px solid rgba(255,255,255,.1); color: rgba(255,255,255,.42); padding: .65rem 1.5rem; border-radius: var(--radius); font-size: .78rem; font-weight: 400; text-decoration: none; letter-spacing: .05em; transition: border-color .2s, color .2s; }
-    .btn-secondary:hover { border-color: rgba(255,255,255,.28); color: rgba(255,255,255,.72); }
-    .hero-badges { display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap; animation: fadeUp .6s .4s ease both; }
-    .hbadge { display: flex; align-items: center; gap: .4rem; font-size: .68rem; color: rgba(221,230,240,.25); letter-spacing: .06em; }
-    .hbadge::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: rgba(52,211,153,.55); flex-shrink: 0; }
+    .hero { padding-block: clamp(56px, 8vw, 104px) clamp(64px, 9vw, 112px); background: radial-gradient(1100px 520px at 85% 10%, #eef2f7 0%, rgba(238,242,247,0) 70%), var(--white); }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(2.5rem, 6vw, 5rem); align-items: center; }
+    .hero h1 { font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 700; line-height: 1.08; letter-spacing: -.035em; max-width: 14ch; }
+    .hero-sub { margin-top: 1.4rem; max-width: 33rem; font-size: clamp(1.08rem, 1.4vw, 1.22rem); line-height: 1.7; color: var(--body); }
+    .hero-btns { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1.4rem; margin-top: 2.2rem; }
+    .proof { display: flex; flex-wrap: wrap; gap: .8rem 1.8rem; margin-top: 2.6rem; padding-top: 1.6rem; border-top: 1px solid var(--line); max-width: 33rem; }
+    .proof li { display: flex; align-items: center; gap: .55rem; font-size: .92rem; font-weight: 500; color: var(--ink); }
+    .proof svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .proof .st { fill: none; stroke: var(--copper); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    .proof .fl { fill: var(--ink); }
 
-    /* CHIP */
-    .hero-right { display: flex; align-items: center; justify-content: center; animation: fadeIn .8s .3s ease both; }
-    .circuit { position: relative; width: 340px; height: 340px; }
-    .node { position: absolute; border-radius: 10px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.07); transition: border-color .3s; }
-    .node:hover { border-color: rgba(255,255,255,.15); }
-    .n1{width:62px;height:62px;top:18px;left:18px;} .n2{width:62px;height:62px;top:18px;left:139px;} .n3{width:62px;height:62px;top:18px;right:18px;}
-    .n4{width:62px;height:62px;top:139px;left:18px;} .n5{width:62px;height:62px;top:139px;right:18px;}
-    .n6{width:62px;height:62px;bottom:18px;left:18px;} .n7{width:62px;height:62px;bottom:18px;left:139px;} .n8{width:62px;height:62px;bottom:18px;right:18px;}
-    .nc { width:100px;height:100px;top:50%;left:50%;transform:translate(-50%,-50%);position:absolute;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;z-index:2;display:flex;align-items:center;justify-content:center; }
-    .nc-inner { width:44px;height:44px;border-radius:7px;background:rgba(180,140,80,.15);border:1px solid rgba(180,140,80,.28); }
-    .tracks { position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none; }
-    .flow { stroke-dasharray:6 4;animation:dash 3s linear infinite; }
-    .flow2 { stroke-dasharray:6 4;animation:dash 3s 1s linear infinite; }
-    .flow3 { stroke-dasharray:6 4;animation:dash 3s 2s linear infinite; }
-    @keyframes dash { to { stroke-dashoffset:-40; } }
-    .pulse { position:absolute;width:6px;height:6px;border-radius:50%; }
-    .pulse::before { content:'';position:absolute;inset:-3px;border-radius:50%;border:1px solid currentColor;animation:ring 2s ease-out infinite;opacity:0; }
-    @keyframes ring { 0%{transform:scale(1);opacity:.6;} 100%{transform:scale(2.5);opacity:0;} }
-    .p1{top:48px;left:82px;background:#60a5fa;color:#60a5fa;animation:blink 3s infinite;}
-    .p2{top:48px;right:82px;background:#34d399;color:#34d399;animation:blink 3s .5s infinite;}
-    .p3{top:172px;left:82px;background:#f97316;color:#f97316;animation:blink 3s 1s infinite;}
-    .p4{bottom:48px;left:172px;background:#a78bfa;color:#a78bfa;animation:blink 3s 1.5s infinite;}
-    .p5{top:172px;right:82px;background:#60a5fa;color:#60a5fa;animation:blink 3s 2s infinite;}
-    @keyframes blink { 0%,100%{opacity:.35;} 50%{opacity:1;} }
-    .corner{position:absolute;width:28px;height:28px;}
-    .c-tl{top:-14px;left:-14px;} .c-tr{top:-14px;right:-14px;} .c-bl{bottom:-14px;left:-14px;} .c-br{bottom:-14px;right:-14px;}
+    /* Placa: os apps são os blocos do chip */
+    .board { position: relative; padding: 34px; max-width: 520px; width: 100%; justify-self: center; }
+    .traces { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+    .traces path { fill: none; stroke: var(--copper); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; opacity: .75; }
+    .traces circle { fill: var(--copper); }
+    .plate { position: relative; background: linear-gradient(160deg, var(--navy-2) 0%, var(--navy) 55%, var(--navy-deep) 100%); border-radius: var(--r-lg); padding: clamp(18px, 3vw, 26px); box-shadow: 0 30px 60px -28px rgba(22,34,47,.55), inset 0 1px 0 rgba(255,255,255,.08); }
+    .tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(10px, 1.6vw, 14px); }
+    .tile { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: var(--r-md); padding: clamp(12px, 2vw, 18px); display: grid; gap: .7rem; text-decoration: none; transition: background .2s, border-color .2s; min-width: 0; }
+    .tile:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.2); }
+    .tile img { width: clamp(46px, 7vw, 60px); height: clamp(46px, 7vw, 60px); border-radius: 14px; object-fit: cover; box-shadow: 0 6px 14px -6px rgba(0,0,0,.5); }
+    .tile-txt { display: grid; gap: .2rem; }
+    .tile-name { font-family: var(--font-head); font-weight: 600; font-size: clamp(.86rem, 1.2vw, .98rem); color: #fff; line-height: 1.25; }
+    .tile-sub { font-size: .8rem; color: var(--on-navy-soft); line-height: 1.35; }
+    .plate-foot { display: flex; align-items: center; justify-content: space-between; gap: .8rem; margin-top: clamp(12px, 2vw, 16px); padding: .7rem .9rem; border-radius: var(--r-sm); background: rgba(0,0,0,.18); color: var(--on-navy-soft); font-size: .82rem; }
+    .plate-foot b { color: #fff; font-weight: 600; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: #3ecf8e; box-shadow: 0 0 0 4px rgba(62,207,142,.18); flex-shrink: 0; }
 
-    /* SEÇÕES */
-    .section-inner { max-width: 1160px; margin: 0 auto; }
-    .sec-tag { font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(221,230,240,.28);font-weight:500;margin-bottom:1rem;display:flex;align-items:center;gap:.6rem; }
-    .sec-tag::before { content:'';width:16px;height:1px;background:rgba(221,230,240,.18); }
-    h2 { font-family:var(--font-head);font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:800;color:var(--white);letter-spacing:-.03em;line-height:1.12;margin-bottom:1.5rem; }
+    @media (prefers-reduced-motion: no-preference) {
+      .traces path { stroke-dasharray: 140; stroke-dashoffset: 140; animation: draw 1.4s cubic-bezier(.6,.1,.3,1) .25s forwards; }
+      .traces circle { opacity: 0; animation: on .4s ease 1.5s forwards; }
+      @keyframes draw { to { stroke-dashoffset: 0; } }
+      @keyframes on { to { opacity: 1; } }
+    }
 
-    /* SOBRE */
-    #sobre { padding:100px 5%;border-top:1px solid var(--border); }
-    .sobre-grid { display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;margin-top:3rem; }
-    .sobre-text p { color:var(--muted);font-size:.95rem;font-weight:300;line-height:1.85;margin-bottom:1.2rem; }
-    .sobre-text p strong { color:var(--text);font-weight:500; }
-    .sobre-stat { display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem; }
-    .stat-card { background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:2.5rem 3rem;text-align:center;width:100%; }
-    .stat-num { font-family:var(--font-head);font-size:4.5rem;font-weight:800;color:#fff;line-height:1;letter-spacing:-.04em;margin-bottom:.5rem; }
-    .stat-num sup { font-size:2rem;color:rgba(221,230,240,.5);vertical-align:super; }
-    .stat-label { font-size:.78rem;color:rgba(221,230,240,.4);font-weight:300;line-height:1.6;letter-spacing:.04em; }
-    .sobre-pills { display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center; }
-    .pill { font-size:.72rem;padding:.3rem .9rem;border-radius:999px;border:1px solid rgba(255,255,255,.07);color:rgba(221,230,240,.32);letter-spacing:.06em; }
+    /* Seções */
+    .sec { padding-block: clamp(72px, 9vw, 120px) clamp(80px, 10vw, 132px); }
+    .sec-mist { background: var(--mist); border-block: 1px solid var(--line); }
+    .sec h2 { font-size: clamp(1.9rem, 3.4vw, 2.7rem); font-weight: 700; line-height: 1.12; letter-spacing: -.03em; }
+    .intro { margin-top: 1rem; max-width: 38rem; color: var(--body); }
 
-    /* SEGMENTOS */
-    #apps { padding:100px 5%;border-top:1px solid var(--border);background:rgba(0,0,0,.08); }
-    .seg-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem; }
-    .seg-card { background:var(--card);border:1px solid var(--border-card);border-radius:12px;padding:2rem;display:flex;flex-direction:column;gap:1.4rem;position:relative;overflow:hidden;transition:border-color .25s,background .25s; }
-    .seg-card:hover { background:#334f6e;border-color:rgba(255,255,255,.18); }
-    .seg-card::before { content:'';position:absolute;top:0;left:0;right:0;height:2px;opacity:0;transition:opacity .3s; }
-    .seg-card:hover::before { opacity:1; }
-    .seg-industria::before { background:linear-gradient(90deg,#3b82f6,#60a5fa); }
-    .seg-servicos::before { background:linear-gradient(90deg,#f97316,#fb923c); }
-    .seg-saude::before { background:linear-gradient(90deg,#10b981,#34d399); }
-    .seg-header { display:flex;align-items:center;gap:.8rem; }
-    .seg-icon-wrap { width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0; }
-    .seg-industria .seg-icon-wrap { background:rgba(59,130,246,.2);border:1px solid rgba(59,130,246,.3); }
-    .seg-servicos .seg-icon-wrap { background:rgba(249,115,22,.2);border:1px solid rgba(249,115,22,.3); }
-    .seg-saude .seg-icon-wrap { background:rgba(16,185,129,.2);border:1px solid rgba(16,185,129,.3); }
-    .seg-label { font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600; }
-    .seg-industria .seg-label { color:rgba(96,165,250,.9); }
-    .seg-servicos .seg-label { color:rgba(251,146,60,.9); }
-    .seg-saude .seg-label { color:rgba(52,211,153,.9); }
-    .seg-desc { font-size:.82rem;color:rgba(221,230,240,.48);font-weight:300;line-height:1.7; }
-    .seg-apps { display:flex;flex-direction:column;gap:.8rem;border-top:1px solid rgba(255,255,255,.08);padding-top:1.2rem; }
-    .app-row { display:flex;align-items:center;gap:.9rem; }
-    .app-ico { width:44px;height:44px;border-radius:10px;overflow:hidden;flex-shrink:0;box-shadow:0 2px 10px rgba(0,0,0,.3); }
-    .app-ico img { width:100%;height:100%;object-fit:cover; }
-    .app-ico-ph { width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0; }
-    .app-row-info { flex:1;min-width:0; }
-    .app-row-name { font-family:var(--font-head);font-size:.85rem;font-weight:700;color:#fff;margin-bottom:.12rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis; }
-    .app-row-sub { font-size:.72rem;color:rgba(221,230,240,.4);font-weight:300; }
-    .badge-live { font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;padding:.15rem .55rem;border-radius:999px;background:rgba(52,211,153,.12);border:1px solid rgba(52,211,153,.28);color:#34d399;white-space:nowrap; }
-    .badge-soon { font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;padding:.15rem .55rem;border-radius:999px;background:rgba(167,139,250,.12);border:1px solid rgba(167,139,250,.28);color:rgba(167,139,250,.9);white-space:nowrap; }
-    .seg-footer { display:flex;flex-wrap:wrap;gap:.5rem;border-top:1px solid rgba(255,255,255,.07);padding-top:1.2rem; }
-    .store-tag { font-size:.68rem;color:rgba(221,230,240,.48);text-decoration:none;border:1px solid rgba(255,255,255,.12);padding:.28rem .75rem;border-radius:4px;letter-spacing:.05em;display:inline-flex;align-items:center;gap:.35rem;transition:border-color .2s,color .2s; }
-    .store-tag:hover { border-color:rgba(255,255,255,.3);color:#fff; }
-    .store-tag.soon { opacity:.3;pointer-events:none; }
+    /* EMPRESA */
+    .empresa-grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
+    .empresa-text { display: grid; gap: 1.2rem; margin-top: 1.8rem; max-width: 36rem; }
+    .empresa-text strong { color: var(--ink); font-weight: 600; }
+    .exp { display: flex; align-items: flex-end; gap: 1.2rem; margin-top: 2.4rem; }
+    .exp-num { font-family: var(--font-head); font-weight: 700; font-size: clamp(3.6rem, 7vw, 5rem); line-height: .9; letter-spacing: -.05em; color: var(--ink); }
+    .exp-num span { color: var(--copper); }
+    .exp-label { color: var(--muted); font-size: .98rem; line-height: 1.45; padding-bottom: .3rem; max-width: 14rem; }
+
+    .pillars { display: grid; gap: 0; border-top: 1px solid var(--line); }
+    .pillar { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 1.1rem; padding-block: 1.6rem; border-bottom: 1px solid var(--line); }
+    .pillar-ico { width: 44px; height: 44px; border-radius: var(--r-sm); background: var(--copper-soft); display: grid; place-items: center; }
+    .pillar-ico svg { width: 22px; height: 22px; fill: none; stroke: var(--copper); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    .pillar h3 { font-size: 1.08rem; font-weight: 600; letter-spacing: -.01em; }
+    .pillar p { margin-top: .3rem; color: var(--muted); font-size: .97rem; line-height: 1.6; }
+
+    /* APLICATIVOS: uma linha por segmento */
+    .segs { margin-top: 3.2rem; display: grid; gap: 1.2rem; }
+    .seg { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(1.4rem, 4vw, 3.5rem); background: var(--white); border: 1px solid var(--line); border-radius: var(--r-lg); padding: clamp(1.5rem, 3.2vw, 2.4rem); box-shadow: var(--shadow); }
+    .seg-head { display: grid; gap: .8rem; align-content: start; }
+    .seg-tag { display: inline-flex; align-items: center; gap: .55rem; font-family: var(--font-head); font-size: 1.3rem; font-weight: 600; color: var(--ink); }
+    .seg-tag svg { width: 22px; height: 22px; fill: none; stroke: var(--copper); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    .seg-desc { color: var(--muted); font-size: .98rem; line-height: 1.6; max-width: 26rem; }
+    .apps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 1rem; align-content: start; }
+    .app { display: grid; grid-template-columns: 60px minmax(0, 1fr); gap: .15rem 1rem; align-items: center; padding: 1.1rem; border-radius: var(--r-md); background: var(--mist); border: 1px solid transparent; transition: border-color .2s; }
+    .app:hover { border-color: var(--line); }
+    .app-ico { width: 60px; height: 60px; border-radius: 15px; overflow: hidden; grid-row: span 2; box-shadow: 0 6px 14px -8px rgba(30,45,61,.5); background: var(--line); }
+    .app-ico img { width: 100%; height: 100%; object-fit: cover; }
+    .app-name { font-family: var(--font-head); font-weight: 600; font-size: 1.02rem; color: var(--ink); line-height: 1.25; display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .6rem; }
+    .live { font-family: var(--font-body); font-size: .74rem; font-weight: 600; color: var(--ok); display: inline-flex; align-items: center; gap: .3rem; }
+    .live::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+    .app-sub { font-size: .9rem; color: var(--muted); line-height: 1.4; }
+    .stores { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .8rem; }
+    .store { display: inline-flex; align-items: center; gap: .45rem; font-size: .84rem; font-weight: 600; text-decoration: none; color: #fff; background: var(--navy); border-radius: var(--r-xs); padding: .5rem .85rem; transition: background .2s; }
+    .store svg { width: 14px; height: 14px; fill: currentColor; flex-shrink: 0; }
+    a.store:hover { background: var(--navy-2); }
+    .store.off { background: transparent; color: var(--muted); border: 1px dashed #c3ccd6; font-weight: 500; }
 
     /* CONTATO */
-    #contato { padding:100px 5%;border-top:1px solid var(--border);text-align:center; }
-    #contato h2 { margin-bottom:.8rem; }
-    .contato-sub { color:var(--muted);font-size:.9rem;font-weight:300;margin-bottom:3rem; }
-    .contato-email { display:inline-flex;align-items:center;gap:.75rem;border:1px solid rgba(255,255,255,.14);color:rgba(221,230,240,.65);padding:1rem 2rem;border-radius:var(--radius);font-size:.9rem;text-decoration:none;transition:border-color .2s,color .2s;letter-spacing:.03em; }
-    .contato-email:hover { border-color:rgba(255,255,255,.32);color:var(--white); }
+    .contact { background: var(--navy); color: var(--on-navy); padding-block: clamp(72px, 9vw, 112px); position: relative; overflow: hidden; }
+    .contact::after { content: ''; position: absolute; right: -120px; top: -120px; width: 420px; height: 420px; border: 1px solid rgba(168,120,58,.35); border-radius: 50%; pointer-events: none; }
+    .contact-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2rem, 6vw, 5rem); align-items: center; }
+    .contact h2 { color: #fff; font-size: clamp(1.9rem, 3.4vw, 2.7rem); font-weight: 700; letter-spacing: -.03em; line-height: 1.12; }
+    .contact .intro { color: var(--on-navy-soft); }
+    .mail { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); border-radius: var(--r-lg); padding: clamp(1.4rem, 3vw, 2rem); display: grid; gap: 1.1rem; }
+    .mail-label { font-size: .9rem; color: var(--on-navy-soft); }
+    .mail-addr { font-family: var(--font-head); font-weight: 600; font-size: clamp(1.25rem, 2.6vw, 1.75rem); color: #fff; overflow-wrap: anywhere; user-select: all; }
+    .mail-actions { display: flex; flex-wrap: wrap; gap: .6rem; }
+    .btn-white { background: #fff; color: var(--navy); }
+    .btn-white:hover { background: #e9eef3; }
+    .btn-ghost-w { background: transparent; color: #fff; border-color: rgba(255,255,255,.3); }
+    .btn-ghost-w:hover { border-color: #fff; }
+    .copy-msg { font-size: .88rem; color: #8ee6bd; min-height: 1.3em; }
 
-    /* FOOTER */
-    footer { background:rgba(0,0,0,.18);border-top:1px solid var(--border);padding:2rem 5%; }
-    .footer-inner { max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem; }
-    .footer-logo { font-size:.78rem;letter-spacing:.06em;color:rgba(255,255,255,.28);text-decoration:none;font-weight:500; }
-    .footer-links { display:flex;gap:2rem;list-style:none; }
-    .footer-links a { color:rgba(255,255,255,.22);text-decoration:none;font-size:.75rem;letter-spacing:.04em;transition:color .2s; }
-    .footer-links a:hover { color:rgba(255,255,255,.52); }
-    .footer-copy { font-size:.7rem;color:rgba(255,255,255,.16);letter-spacing:.06em;width:100%;text-align:center;padding-top:.5rem;border-top:1px solid rgba(255,255,255,.04); }
+    /* RODAPÉ */
+    footer { background: var(--navy-deep); color: var(--on-navy-soft); padding-block: 2.6rem calc(2.2rem + env(safe-area-inset-bottom, 0px)); }
+    .footer-in { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.2rem 2rem; }
+    .footer-logo { font-weight: 600; font-size: .95rem; letter-spacing: .03em; color: #fff; text-decoration: none; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: .6rem 2rem; }
+    .footer-links a { color: var(--on-navy-soft); text-decoration: none; font-size: .92rem; transition: color .2s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-copy { width: 100%; padding-top: 1.3rem; border-top: 1px solid rgba(255,255,255,.08); font-size: .84rem; color: #8b9aab; }
 
-    /* REVEAL */
-    .reveal { opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease; }
-    .reveal.visible { opacity:1;transform:none; }
-    @keyframes fadeUp { from{opacity:0;transform:translateY(16px);} to{opacity:1;transform:translateY(0);} }
-    @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
-
-    /* RESPONSIVE */
-    @media (max-width:900px) {
-      .seg-grid { grid-template-columns:1fr; }
-      .seg-card { padding:1.6rem; }
+    /* RESPONSIVO */
+    @media (max-width: 900px) {
+      .hero-grid, .empresa-grid, .contact-grid, .seg { grid-template-columns: minmax(0, 1fr); }
+      .board { max-width: 460px; }
     }
-    @media (max-width:860px) {
-      .hero-inner { grid-template-columns:1fr; }
-      .hero-right { display:none; }
-      .sobre-grid { grid-template-columns:1fr;gap:3rem; }
-    }
-    @media (max-width:640px) {
-      nav ul { display:none; }
-      .menu-toggle { display:flex; }
-      nav.open ul { display:flex;flex-direction:column;position:fixed;top:66px;left:0;right:0;background:#1e2d3d;border-bottom:1px solid var(--border);padding:1.5rem 5%;gap:1.5rem;z-index:99; }
-      h1 { font-size:clamp(2rem,8vw,2.8rem); }
-      .hero-sub { max-width:100%; }
-      .hero-badges { gap:.8rem; }
-      .footer-inner { flex-direction:column;align-items:flex-start;gap:.8rem; }
-      .footer-links { flex-wrap:wrap;gap:1rem; }
-      .seg-footer { gap:.4rem; }
-      .store-tag { font-size:.65rem;padding:.25rem .65rem; }
-      .app-row-name { font-size:.82rem; }
-      #sobre { padding:70px 5%; }
-      #apps { padding:70px 5%; }
-      #contato { padding:70px 5%; }
+    @media (max-width: 720px) {
+      .menu-toggle { display: block; }
+      .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: flex-start; gap: 1.3rem; background: var(--white); border-bottom: 1px solid var(--line); padding: 1.4rem var(--gutter) 1.8rem; box-shadow: var(--shadow); }
+      .nav.open .nav-links { display: flex; }
+      .brand-name { font-size: .86rem; }
+      .board { padding: 22px; }
     }
   </style>
 </head>
 <body>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
 
-<nav id="navbar">
-  <div class="nav-in">
+<header class="nav" id="navbar">
+  <div class="wrap nav-in">
     <a href="/" class="brand-name">Support Soluções Corporativas</a>
-    <ul class="nav-links">
-      <li><a href="#sobre">Empresa</a></li>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#empresa">Empresa</a></li>
       <li><a href="#apps">Aplicativos</a></li>
       <li><a href="/privacidade">Privacidade</a></li>
-      <li><a href="#contato" class="nav-pill">Contato</a></li>
+      <li><a href="#contato" class="btn btn-navy">Fale conosco</a></li>
     </ul>
-    <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
-</nav>
+</header>
 
-<section id="hero">
-  <div class="hero-inner">
-    <div class="hero-left">
-      <p class="eyebrow">Tecnologia Corporativa</p>
-      <h1>Soluções que<br/><em>funcionam</em><br/>no mundo real</h1>
-      <p class="hero-sub">Aplicativos corporativos desenvolvidos com experiência real de campo. Uma empresa sólida, com história e compromisso.</p>
-      <div class="hero-btns">
-        <a href="#apps" class="btn-primary">Ver aplicativos</a>
-        <a href="#contato" class="btn-secondary">Falar conosco</a>
+<main id="conteudo">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Soluções que funcionam no mundo real</h1>
+        <p class="hero-sub">Aplicativos corporativos desenvolvidos com experiência real de campo. Uma empresa sólida, com história e compromisso.</p>
+        <div class="hero-btns">
+          <a href="#apps" class="btn btn-navy">Ver aplicativos</a>
+          <a href="#contato" class="link-arrow">Falar conosco <span aria-hidden="true">›</span></a>
+        </div>
+        <ul class="proof">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path class="st" d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z" /><path class="st" d="M9 12l2 2 4-4" /></svg>Conformidade com a LGPD</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path class="fl" d="M4 2.5v19l17-9.5z" /></svg>Google Play</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path class="fl" d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1.1-3.2-1 0-2.3.7-3 1.6-.7.8-1.3 2-1.1 3.1 1.1.1 2.3-.6 3-1.5z" /></svg>App Store</li>
+        </ul>
       </div>
-      <div class="hero-badges">
-        <span class="hbadge">LGPD Conformidade</span>
-        <span class="hbadge">Google Play</span>
-        <span class="hbadge">App Store</span>
-      </div>
-    </div>
-    <div class="hero-right">
-      <div class="circuit">
-        <div class="corner c-tl"><svg viewBox="0 0 28 28"><path d="M26 2 L8 2 Q2 2 2 8 L2 26" stroke="rgba(180,140,80,.35)" stroke-width="1.5" fill="none"/><circle cx="2" cy="26" r="2" fill="rgba(180,140,80,.4)"/></svg></div>
-        <div class="corner c-tr"><svg viewBox="0 0 28 28"><path d="M2 2 L20 2 Q26 2 26 8 L26 26" stroke="rgba(180,140,80,.35)" stroke-width="1.5" fill="none"/><circle cx="26" cy="26" r="2" fill="rgba(180,140,80,.4)"/></svg></div>
-        <div class="corner c-bl"><svg viewBox="0 0 28 28"><path d="M26 26 L8 26 Q2 26 2 20 L2 2" stroke="rgba(180,140,80,.35)" stroke-width="1.5" fill="none"/><circle cx="2" cy="2" r="2" fill="rgba(180,140,80,.4)"/></svg></div>
-        <div class="corner c-br"><svg viewBox="0 0 28 28"><path d="M2 26 L20 26 Q26 26 26 20 L26 2" stroke="rgba(180,140,80,.35)" stroke-width="1.5" fill="none"/><circle cx="26" cy="2" r="2" fill="rgba(180,140,80,.4)"/></svg></div>
-        <div class="node n1"></div><div class="node n2"></div><div class="node n3"></div>
-        <div class="node n4"></div><div class="node n5"></div>
-        <div class="node n6"></div><div class="node n7"></div><div class="node n8"></div>
-        <svg class="tracks" viewBox="0 0 340 340">
-          <line x1="80" y1="49" x2="139" y2="49" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
-          <line x1="201" y1="49" x2="260" y2="49" stroke="rgba(255,255,255,.09)" stroke-width="1" class="flow"/>
-          <line x1="80" y1="170" x2="120" y2="170" stroke="rgba(255,255,255,.1)" stroke-width="1" class="flow2"/>
-          <line x1="220" y1="170" x2="260" y2="170" stroke="rgba(255,255,255,.09)" stroke-width="1" class="flow3"/>
-          <line x1="80" y1="291" x2="139" y2="291" stroke="rgba(255,255,255,.09)" stroke-width="1" class="flow"/>
-          <line x1="201" y1="291" x2="260" y2="291" stroke="rgba(255,255,255,.09)" stroke-width="1"/>
-          <line x1="49" y1="80" x2="49" y2="139" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
-          <line x1="49" y1="201" x2="49" y2="260" stroke="rgba(255,255,255,.06)" stroke-width="1" class="flow2"/>
-          <line x1="291" y1="80" x2="291" y2="139" stroke="rgba(255,255,255,.06)" stroke-width="1" class="flow3"/>
-          <line x1="291" y1="201" x2="291" y2="260" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
-          <line x1="170" y1="80" x2="170" y2="120" stroke="rgba(255,255,255,.08)" stroke-width="1" class="flow"/>
-          <line x1="170" y1="220" x2="170" y2="260" stroke="rgba(255,255,255,.08)" stroke-width="1" class="flow2"/>
+
+      <div class="board">
+        <svg class="traces" viewBox="0 0 520 520" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M34 110 H14 L0 96 H-18" /><path d="M34 150 H18 L4 164 H-14" />
+          <path d="M486 110 H506 L520 96 H538" /><path d="M486 150 H502 L516 164 H534" />
+          <path d="M34 370 H14 L0 384 H-18" /><path d="M486 370 H506 L520 384 H538" />
+          <path d="M120 34 V14 L106 0 V-18" /><path d="M400 34 V14 L414 0 V-18" />
+          <path d="M240 486 V506 L226 520 V536" /><path d="M280 486 V506 L294 520 V536" />
+          <circle cx="-18" cy="96" r="3" /><circle cx="-14" cy="164" r="3" /><circle cx="538" cy="96" r="3" /><circle cx="534" cy="164" r="3" />
+          <circle cx="-18" cy="384" r="3" /><circle cx="538" cy="384" r="3" /><circle cx="106" cy="-18" r="3" /><circle cx="414" cy="-18" r="3" />
+          <circle cx="226" cy="536" r="3" /><circle cx="294" cy="536" r="3" />
         </svg>
-        <div class="pulse p1"></div><div class="pulse p2"></div><div class="pulse p3"></div>
-        <div class="pulse p4"></div><div class="pulse p5"></div>
-        <div class="nc"><div class="nc-inner"></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="sobre">
-  <div class="section-inner">
-    <div class="sec-tag reveal">Quem somos</div>
-    <h2 class="reveal">Uma empresa construída<br/>pela experiência</h2>
-    <div class="sobre-grid">
-      <div class="sobre-text reveal">
-        <p>A <strong>Support Soluções Corporativas</strong> nasceu de mais de duas décadas atuando diretamente em tecnologia industrial, suporte técnico e automação. Conhecemos os problemas reais das empresas porque já estivemos dentro delas.</p>
-        <p>Desenvolvemos aplicativos móveis corporativos com foco em <strong>resultado prático</strong>, não apenas em tecnologia pela tecnologia. Cada produto é pensado para resolver uma necessidade concreta do dia a dia operacional.</p>
-        <p>Nosso portfólio abrange segmentos industriais, de serviços e de saúde, com aplicativos publicados nas principais lojas e novos produtos em desenvolvimento contínuo.</p>
-      </div>
-      <div class="sobre-stat reveal">
-        <div class="stat-card">
-          <div class="stat-num">25<sup>+</sup></div>
-          <div class="stat-label">anos de experiência<br/>em tecnologia industrial</div>
-        </div>
-        <div class="sobre-pills">
-          <span class="pill">Tecnologia Industrial</span>
-          <span class="pill">Suporte Técnico</span>
-          <span class="pill">Automação</span>
-          <span class="pill">Apps Móveis</span>
+        <div class="plate">
+          <div class="tiles" id="tiles"></div>
+          <div class="plate-foot"><span><b>Publicados</b> nas lojas oficiais</span><span class="dot" aria-hidden="true"></span></div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="apps">
-  <div class="section-inner">
-    <div class="sec-tag reveal">Produtos</div>
-    <h2 class="reveal">Aplicativos por segmento</h2>
-    <div class="seg-grid" id="seg-grid">
-      <!-- preenchido via JS + config.json -->
+  <section class="sec sec-mist" id="empresa">
+    <div class="wrap empresa-grid">
+      <div>
+        <h2>Uma empresa construída pela experiência</h2>
+        <div class="empresa-text">
+          <p>A <strong>Support Soluções Corporativas</strong> nasceu de mais de duas décadas atuando diretamente em tecnologia industrial, suporte técnico e automação. Conhecemos os problemas reais das empresas porque já estivemos dentro delas.</p>
+          <p>Desenvolvemos aplicativos móveis corporativos com foco em <strong>resultado prático</strong>, não apenas em tecnologia pela tecnologia. Cada produto é pensado para resolver uma necessidade concreta do dia a dia operacional.</p>
+          <p>Nosso portfólio abrange segmentos industriais, de serviços e de saúde, com aplicativos publicados nas principais lojas e novos produtos em desenvolvimento contínuo.</p>
+        </div>
+        <div class="exp">
+          <div class="exp-num">25<span>+</span></div>
+          <p class="exp-label">anos de experiência em tecnologia industrial</p>
+        </div>
+      </div>
+
+      <ul class="pillars">
+        <li class="pillar">
+          <span class="pillar-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21V10l5 3V10l5 3V6h3l1 15" /><path d="M3 21h18" /></svg></span>
+          <div><h3>Experiência de campo</h3><p>Tecnologia industrial, suporte técnico e automação vividos de dentro das empresas.</p></div>
+        </li>
+        <li class="pillar">
+          <span class="pillar-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" /><circle cx="12" cy="12" r="3.5" /><path d="M12 2v3M12 19v3M2 12h3M19 12h3" /></svg></span>
+          <div><h3>Foco em resultado prático</h3><p>Cada aplicativo resolve uma necessidade concreta do dia a dia operacional.</p></div>
+        </li>
+        <li class="pillar">
+          <span class="pillar-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2" /><path d="M8 10V7a4 4 0 0 1 8 0v3" /></svg></span>
+          <div><h3>Privacidade e LGPD</h3><p>Políticas de privacidade públicas e tratamento de dados conforme a LGPD.</p></div>
+        </li>
+        <li class="pillar">
+          <span class="pillar-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.5" /><path d="M10.5 18.5h3" /></svg></span>
+          <div><h3>Nas lojas oficiais</h3><p>Aplicativos revisados e publicados no Google Play e na App Store.</p></div>
+        </li>
+      </ul>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="contato">
-  <div class="section-inner" style="text-align:center;">
-    <div class="sec-tag reveal" style="justify-content:center;">Fale conosco</div>
-    <h2 class="reveal">Pronto para começar?</h2>
-    <p class="contato-sub reveal">Entre em contato para conhecer nossos aplicativos ou tirar dúvidas sobre a Support Soluções Corporativas.</p>
-    <a href="mailto:contato@susco.com.br" class="contato-email reveal">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      contato@susco.com.br
-    </a>
-  </div>
-</section>
+  <section class="sec" id="apps">
+    <div class="wrap">
+      <h2>Aplicativos por segmento</h2>
+      <p class="intro">Cada aplicativo nasceu de uma necessidade real de trabalho. Baixe direto na loja do seu celular.</p>
+      <div class="segs" id="segs"></div>
+    </div>
+  </section>
+
+  <section class="contact" id="contato">
+    <div class="wrap contact-grid">
+      <div>
+        <h2>Pronto para começar?</h2>
+        <p class="intro">Entre em contato para conhecer nossos aplicativos ou tirar dúvidas sobre a Support Soluções Corporativas.</p>
+      </div>
+      <div class="mail">
+        <span class="mail-label">Escreva para</span>
+        <span class="mail-addr" id="mailAddr">contato@susco.com.br</span>
+        <div class="mail-actions">
+          <a href="mailto:contato@susco.com.br" class="btn btn-white">Enviar e-mail</a>
+          <button type="button" class="btn btn-ghost-w" id="copyBtn">Copiar endereço</button>
+        </div>
+        <span class="copy-msg" id="copyMsg" role="status" aria-live="polite"></span>
+      </div>
+    </div>
+  </section>
+</main>
 
 <footer>
-  <div class="footer-inner">
+  <div class="wrap footer-in">
     <a href="/" class="footer-logo">Support Soluções Corporativas Ltda.</a>
     <ul class="footer-links">
-      <li><a href="#sobre">Empresa</a></li>
+      <li><a href="#empresa">Empresa</a></li>
       <li><a href="#apps">Aplicativos</a></li>
       <li><a href="/privacidade">Privacidade</a></li>
       <li><a href="mailto:contato@susco.com.br">Contato</a></li>
     </ul>
-    <p class="footer-copy">&copy; <span id="year"></span> Support Soluções Corporativas Ltda. &nbsp;|&nbsp; CNPJ 43.225.621/0001-86 &nbsp;|&nbsp; susco.com.br</p>
+    <p class="footer-copy">&copy; <span id="year">2026</span> Support Soluções Corporativas Ltda. &nbsp;|&nbsp; CNPJ 43.225.621/0001-86 &nbsp;|&nbsp; susco.com.br</p>
   </div>
 </footer>
 
@@ -317,121 +339,94 @@
   document.getElementById('year').textContent = new Date().getFullYear();
 
   // Menu mobile
-  const toggle = document.getElementById('menuToggle');
   const nav = document.getElementById('navbar');
-  toggle.addEventListener('click', () => nav.classList.toggle('open'));
-  document.querySelectorAll('.nav-links a').forEach(a => {
-    a.addEventListener('click', () => nav.classList.remove('open'));
+  const toggle = document.getElementById('menuToggle');
+  toggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+    toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+  });
+  document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Copiar e-mail
+  document.getElementById('copyBtn').addEventListener('click', () => {
+    const msg = document.getElementById('copyMsg');
+    const addr = document.getElementById('mailAddr');
+    const fallback = () => {
+      const r = document.createRange(); r.selectNodeContents(addr);
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+      msg.textContent = 'Endereço selecionado. Use Ctrl+C para copiar.';
+    };
+    try { navigator.clipboard.writeText(addr.textContent.trim()).then(() => { msg.textContent = 'Endereço copiado.'; }, fallback); } catch (e) { fallback(); }
   });
 
-  // Scroll reveal
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach((e,i) => {
-      if(e.isIntersecting){
-        setTimeout(() => e.target.classList.add('visible'), i*80);
-        obs.unobserve(e.target);
-      }
-    });
-  }, {threshold:0.1});
-  document.querySelectorAll('.reveal').forEach(r => obs.observe(r));
+  // Aplicativos: links e ícones vêm do config.json (o mesmo arquivo de sempre).
+  // Para incluir um app novo: cadastre no config.json e adicione a chave dele no segmento abaixo.
+  const FALLBACK = {"apps":{
+    "crono_industrial":{"nome":"Crono Industrial","sub":"Cronoanálise profissional","status":"live","icon_b64":"crono_icon.png","play_store":"https://play.google.com/store/apps/details?id=br.com.susco.cronoindustrial","app_store":"https://apps.apple.com/br/app/crono-industrial/id6797878224"},
+    "crono_pro_industrial":{"nome":"Crono Pro Industrial","sub":"Estimativa de produtividade","status":"live","icon_b64":"crono_ind_icon.png","play_store":"https://play.google.com/store/apps/details?id=br.com.calculadoraproducao.app","app_store":""},
+    "orca_agil":{"nome":"Orça Ágil","sub":"Orçamentos via WhatsApp","status":"live","icon_b64":"orca_agil_icon.png","play_store":"https://play.google.com/store/apps/details?id=br.com.orcagil","app_store":""},
+    "tncalc":{"nome":"TNCalc","sub":"Terapia nutricional clínica","status":"live","icon_b64":"tncalc_icon.png","play_store":"https://play.google.com/store/apps/details?id=br.com.susco.tncalc","app_store":"https://apps.apple.com/br/app/tncalc/id6794928542"}
+  }};
 
-  // Ícones embutidos
   const ICONS = {
-    crono_industrial: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAB13U...',
-    crono_pro_industrial: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAIAAABMXPacAABAz0...',
-    orca_agil: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAjEU...',
+    industria: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21V10l5 3V10l5 3V6h3l1 15"/><path d="M3 21h18"/><path d="M17 6V3h2v18"/></svg>',
+    servicos: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L3 17.8V21h3.2l6.3-6.3a4 4 0 0 0 5.2-5.4l-2.6 2.6-2.4-.6-.6-2.4z"/></svg>',
+    saude: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v6a4 4 0 0 0 8 0V3"/><path d="M10 13v2a5 5 0 0 0 10 0v-2"/><circle cx="20" cy="11" r="2"/></svg>'
   };
 
-  // Config estática dos segmentos
   const SEGMENTS = [
-    {
-      id: 'industria', label: 'Indústria', icon: '⚙️',
-      desc: 'Ferramentas para cronoanálise e gestão de capacidade produtiva no chão de fábrica.',
-      apps: ['crono_industrial','crono_pro_industrial']
-    },
-    {
-      id: 'servicos', label: 'Serviços', icon: '🔧',
-      desc: 'Orçamentos, recibos e gestão de pedidos para profissionais autônomos e pequenas empresas.',
-      apps: ['orca_agil']
-    },
-    {
-      id: 'saude', label: 'Saúde', icon: '🩺',
-      desc: 'Prontuários e cálculos clínicos para profissionais de nutrição em ambiente hospitalar e ambulatorial.',
-      apps: ['tncalc']
-    }
+    { id: 'industria', label: 'Indústria', desc: 'Ferramentas para cronoanálise e gestão de capacidade produtiva no chão de fábrica.', apps: ['crono_industrial', 'crono_pro_industrial'] },
+    { id: 'servicos', label: 'Serviços', desc: 'Orçamentos, recibos e gestão de pedidos para profissionais autônomos e pequenas empresas.', apps: ['orca_agil'] },
+    { id: 'saude', label: 'Saúde', desc: 'Prontuários e cálculos clínicos para profissionais de nutrição em ambiente hospitalar e ambulatorial.', apps: ['tncalc'] }
   ];
 
-  function storeBtn(label, url) {
-    if(!url) return `<span class="store-tag soon">${label}</span>`;
-    return `<a href="${url}" target="_blank" rel="noopener" class="store-tag">${label}</a>`;
+  const PLAY = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.5v19l17-9.5z"/></svg>';
+  const APPLE = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1.1-3.2-1 0-2.3.7-3 1.6-.7.8-1.3 2-1.1 3.1 1.1.1 2.3-.6 3-1.5z"/></svg>';
+
+  const esc = s => String(s || '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const iconSrc = a => a.icon_b64 ? (a.icon_b64.startsWith('data:') ? a.icon_b64 : 'images/' + a.icon_b64) : '';
+
+  function store(label, icon, url, name) {
+    return url
+      ? `<a class="store" href="${esc(url)}" target="_blank" rel="noopener" aria-label="${esc(name)} no ${label}">${icon}${label}</a>`
+      : `<span class="store off">${icon}${label} em breve</span>`;
   }
 
-  function appRow(app) {
-    const live = app.status === 'live';
-    let iconHtml;
-    if (app.icon_b64 && app.icon_b64.length > 0) {
-      const src = app.icon_b64.startsWith('data:') ? app.icon_b64 : ('images/' + app.icon_b64);
-      iconHtml = '<div class="app-ico"><img src="' + src + '" alt="' + app.nome + '"/></div>';
-    } else {
-      const bg = app.icon_bg || 'rgba(255,255,255,.08)';
-      const bd = app.icon_border || 'rgba(255,255,255,.15)';
-      const em = app.icon_emoji || '📱';
-      iconHtml = '<div class="app-ico-ph" style="background:' + bg + ';border:1px solid ' + bd + ';">' + em + '</div>';
-    }
-    return '<div class="app-row">' + iconHtml +
-      '<div class="app-row-info">' +
-      '<div class="app-row-name">' + app.nome + '</div>' +
-      '<div class="app-row-sub">' + (app.sub || '') + '</div>' +
-      '</div>' +
-      '<span class="' + (live ? 'badge-live' : 'badge-soon') + '">' + (live ? 'Publicado' : 'Em breve') + '</span>' +
-      '</div>';
+  function appItem(a) {
+    const src = iconSrc(a);
+    return `<li class="app">
+      <div class="app-ico">${src ? `<img src="${esc(src)}" alt="Ícone do ${esc(a.nome)}" width="60" height="60" loading="lazy" />` : ''}</div>
+      <span class="app-name">${esc(a.nome)}${a.status === 'live' ? '<span class="live">Publicado</span>' : ''}</span>
+      <span class="app-sub">${esc(a.sub)}</span>
+      <div class="stores">${store('Google Play', PLAY, a.play_store, a.nome)}${store('App Store', APPLE, a.app_store, a.nome)}</div>
+    </li>`;
   }
 
-  fetch('config.json')
-    .then(r => r.json())
-    .then(config => {
-      const grid = document.getElementById('seg-grid');
-      grid.innerHTML = '';
-      SEGMENTS.forEach(seg => {
-        const appsHtml = seg.apps.map(key => {
-          const app = config.apps[key];
-          return app ? appRow(app) : '';
-        }).join('');
-        const storeKeys = ['play_store','app_store'];
-        const storeLabels = {'play_store':'▶ Google Play','app_store':'🍎 App Store'};
-        // Collect all store links across apps in segment
-        const storeLinks = new Set();
-        seg.apps.forEach(key => {
-          const app = config.apps[key];
-          if(!app) return;
-          storeKeys.forEach(sk => {
-            const url = app[sk];
-            const label = url ? storeLabels[sk] : storeLabels[sk] + ' em breve';
-            storeLinks.add(JSON.stringify({label, url: url || null}));
-          });
-        });
-        const storeHtml = [...storeLinks].map(s => {
-          const {label, url} = JSON.parse(s);
-          return storeBtn(label, url);
-        }).join('');
+  function render(config) {
+    const apps = config.apps || {};
+    document.getElementById('segs').innerHTML = SEGMENTS.map(seg => `
+      <article class="seg">
+        <div class="seg-head">
+          <span class="seg-tag">${ICONS[seg.id]}${seg.label}</span>
+          <p class="seg-desc">${seg.desc}</p>
+        </div>
+        <ul class="apps">${seg.apps.map(k => apps[k] ? appItem(apps[k]) : '').join('')}</ul>
+      </article>`).join('');
 
-        grid.innerHTML += `
-          <div class="seg-card seg-${seg.id} reveal">
-            <div class="seg-header">
-              <div class="seg-icon-wrap">${seg.icon}</div>
-              <span class="seg-label">${seg.label}</span>
-            </div>
-            <p class="seg-desc">${seg.desc}</p>
-            <div class="seg-apps">${appsHtml}</div>
-            <div class="seg-footer">${storeHtml}</div>
-          </div>`;
-      });
-      document.querySelectorAll('.seg-card.reveal').forEach(r => obs.observe(r));
-    })
-    .catch(() => {
-      document.getElementById('seg-grid').innerHTML =
-        '<p style="color:rgba(221,230,240,.3);font-size:.9rem;">Carregando...</p>';
-    });
+    // Placa do hero: até 4 aplicativos publicados
+    const live = Object.values(apps).filter(a => a.status === 'live').slice(0, 4);
+    document.getElementById('tiles').innerHTML = live.map(a => `
+      <a class="tile" href="#apps">
+        ${iconSrc(a) ? `<img src="${esc(iconSrc(a))}" alt="" width="60" height="60" />` : ''}
+        <span class="tile-txt"><span class="tile-name">${esc(a.nome)}</span><span class="tile-sub">${esc(a.sub)}</span></span>
+      </a>`).join('');
+  }
+
+  render(FALLBACK);
+  fetch('config.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : Promise.reject()).then(render).catch(() => {});
 </script>
 </body>
 </html>
